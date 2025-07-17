@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cristina Tutunariu</title>
+</head>
+<body>
+    <header>
+    <h1>Servus, I'm Cristina Tutunariu</h1>
+    <p>Sowftware & Embedded Developer</p>
+    </header>
+    
+    <nav>
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#cv">CV</a>
+    </nav>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <img src="https://avatars.githubusercontent.com/u/102885626?v=4" alt="Cristina Tutunariu" width="200">
+        <p>I am a Computer Engineering student in my 4th semester focused on building tech that supports health and learning.
+            Interested in AI, ML, and robotics especially when applied to med tech and education.
+            I thrive in structured systems and thoughtful design, where purpose meets precision.
+            In addition to coding, I enjoy exploring new languages—both spoken and programming—and consistently look for challenges to expand my technical expertise and broaden my perspective.</p>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <p>Check out my latest projects on <a href="https://github.com/ctd08">GitHub</a>
+    </section>
+    
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Feel free to reach out via email at <a href="cristina.tutunariu@yahoo.com">E-Mail</a>
+            </a> or connect with me on <a href="https://www.linkedin.com/in/cristina-diana-tutunariu/">LinkedIn</a>.</p>
+    </section>
+
+    <section id="cv">
+        <h2>CV</h2>
+        <p>Download my CV <a href="">here</a></p>
+    </section>
+    <footer>
+        <p>&copy; 2023 Cristina Tutunariu</p>
+    </footer>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        header, nav, section, footer {
+            padding: 20px;
+            margin: 10px;
+        }
+        header {
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
+        }
+        section {
+            background-color: #e2e2e2;
+        }
+        footer {
+            text-align: center;
+            background-color: #333;
+            color: white;
+        }
+        img {
+            border-radius: 50%;
+        }
+        a {
+            color: #007bff;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        p {
+            color: #555;
+        }
+        @media (max-width: 600px) {
+            nav {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            nav a {
+                margin: 10px 0;
+            }
+        }
+        @media (min-width: 601px) {
+            nav {
+                display: flex;
+                justify-content: center;
+            }
+        }
+        </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+    
+
+                
+            
+
+    
+        
