@@ -4,8 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cristina Tutunariu – Portfolio</title>
+
+  <!-- ✅ Import Lekton Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Lekton&display=swap" rel="stylesheet" />
+
   <style>
-    /* Base Styles */
     * {
       box-sizing: border-box;
     }
@@ -19,21 +22,28 @@
       transition: background-color 0.3s ease, color 0.3s ease;
     }
 
+    h1, h2, nav a, button {
+      font-family: 'Lekton', sans-serif;
+    }
+
     a {
       text-decoration: none;
       transition: color 0.3s ease;
+      color: #245f19;
     }
 
     img {
       border-radius: 50%;
     }
 
-    header,
-    section,
-    footer {
+    h1, h2, p {
+      color: #222;
+      transition: color 0.3s ease;
+    }
+
+    header, section, footer {
       background: rgba(255, 255, 255, 0.15);
       backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
       border-radius: 12px;
       box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
       border: 1px solid rgba(255, 255, 255, 0.3);
@@ -46,9 +56,13 @@
       text-align: center;
     }
 
-    h1, h2, p {
-      color: #222;
-      transition: color 0.3s ease;
+    main {
+      transition: margin-left 0.4s ease;
+      padding: 10px;
+    }
+
+    body.sidebar-open main {
+      margin-left: 180px;
     }
 
     nav {
@@ -59,45 +73,40 @@
       transition: all 0.5s ease;
     }
 
-    nav a {
+    nav.sidebar {
+      position: fixed;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 160px;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20px;
+      gap: 10px;
+      z-index: 999;
+      display: flex;
+    }
+
+    nav.sidebar a {
+      display: block;
+      margin: 5px 0;
+    }
+
+    #sidebarToggle {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      z-index: 1001;
+      font-size: 24px;
+      background: rgba(255, 255, 255, 0.25);
+      border: none;
+      border-radius: 8px;
+      backdrop-filter: blur(8px);
+      cursor: pointer;
       font-weight: bold;
-      color: #245f19;
-    }
-
-    @media (max-width: 600px) {
-      nav {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
-
-    /* Dark Mode */
-    body.dark {
-      background: linear-gradient(to bottom right, #1a1a1a, #333);
-      color: #f0f0f0;
-    }
-
-    body.dark header,
-    body.dark section,
-    body.dark footer {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      color: #eee;
-    }
-
-    body.dark h1,
-    body.dark h2,
-    body.dark p {
-      color: #f0f0f0;
-    }
-
-    body.dark a,
-    body.dark nav a {
-      color: #6fff8b;
-    }
-
-    a, nav a {
-      color: #245f19;
+      padding: 6px 10px;
     }
 
     .theme-toggle {
@@ -114,11 +123,6 @@
       z-index: 1000;
     }
 
-    .theme-toggle:hover {
-      background: rgba(255, 255, 255, 0.35);
-    }
-
-    /* Scroll to Top Button */
     #scrollTopBtn {
       position: fixed;
       bottom: 30px;
@@ -141,6 +145,32 @@
       background-color: rgba(255, 255, 255, 0.5);
     }
 
+    body.dark {
+      background: linear-gradient(to bottom right, #1a1a1a, #333);
+      color: #f0f0f0;
+    }
+
+    body.dark header,
+    body.dark section,
+    body.dark footer {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    body.dark h1,
+    body.dark h2 {
+      color: #6fff8b; /* ✅ Green titles in dark mode */
+    }
+
+    body.dark p {
+      color: #f0f0f0;
+    }
+
+    body.dark a,
+    body.dark nav a {
+      color: #6fff8b;
+    }
+
     body.dark #scrollTopBtn {
       background: rgba(255, 255, 255, 0.1);
       color: #6fff8b;
@@ -149,16 +179,19 @@
     body.dark #scrollTopBtn:hover {
       background: rgba(255, 255, 255, 0.2);
     }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
   </style>
 </head>
-<body id="body">
+<body>
 
-  <button class="theme-toggle" onclick="toggleDarkMode()">🌓 Dark Mode</button>
-
-  <header>
-    <h1>Servus, I'm Cristina</h1>
-    <p>Software & Embedded Developer</p>
-  </header>
+  <button id="sidebarToggle" onclick="toggleSidebar()">☰</button>
+  <button class="theme-toggle" onclick="toggleDarkMode()">🌓</button>
 
   <nav id="mainNav">
     <a href="#projects">Projects</a>
@@ -167,57 +200,56 @@
     <a href="#cv">CV</a>
   </nav>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <img src="https://avatars.githubusercontent.com/u/102885626?v=4" alt="Cristina Tutunariu" width="200" />
-    <p>
-      I am a Computer Engineering student in my 4th semester focused on building tech that supports health and learning.
-      Interested in AI, ML, and robotics especially when applied to med tech and education.
-      I thrive in structured systems and thoughtful design, where purpose meets precision.
-      In addition to coding, I enjoy exploring new languages—both spoken and programming—and consistently look for challenges to expand my technical expertise and broaden my perspective.
-    </p>
-  </section>
+  <main>
+    <header>
+      <h1>Servus, I'm Cristina</h1>
+      <p>Software & Embedded Developer</p>
+    </header>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <p>Check out my latest projects on <a href="https://github.com/ctd08" target="_blank">GitHub</a>.</p>
-  </section>
+    <section id="about">
+      <h2>About Me</h2>
+      <img src="https://avatars.githubusercontent.com/u/102885626?v=4" alt="Cristina Tutunariu" width="200" />
+      <p>
+        I am a Computer Engineering student in my 4th semester focused on building tech that supports health and learning.
+        Interested in AI, ML, and robotics especially when applied to med tech and education.
+        I thrive in structured systems and thoughtful design, where purpose meets precision.
+      </p>
+    </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>
-      Feel free to reach out via email at
-      <a href="mailto:cristina.tutunariu@yahoo.com">cristina.tutunariu@yahoo.com</a> or connect with me on
-      <a href="https://www.linkedin.com/in/cristina-diana-tutunariu/" target="_blank">LinkedIn</a>.
-    </p>
-  </section>
+    <section id="projects">
+      <h2>Projects</h2>
+      <p>Check out my latest projects on <a href="https://github.com/ctd08" target="_blank">GitHub</a>.</p>
+    </section>
 
-  <section id="cv">
-    <h2>CV</h2>
-    <p>Download my CV <a href="#">here</a>.</p>
-  </section>
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>
+        Email: <a href="mailto:cristina.tutunariu@yahoo.com">cristina.tutunariu@yahoo.com</a> ·
+        <a href="https://www.linkedin.com/in/cristina-diana-tutunariu/" target="_blank">LinkedIn</a>
+      </p>
+    </section>
 
-  <footer>
-    <p>Thank you for visiting my page!</p>
-    <p>&copy; 2025 Cristina Tutunariu</p>
-  </footer>
+    <section id="cv">
+      <h2>CV</h2>
+      <p>Download my CV <a href="#">here</a>.</p>
+    </section>
 
-  <!-- Scroll-to-top button -->
+    <footer>
+      <p>Thank you for visiting my page!</p>
+      <p>&copy; 2025 Cristina Tutunariu</p>
+    </footer>
+  </main>
+
   <button id="scrollTopBtn" onclick="scrollToTop()" title="Go to top">⬆</button>
 
   <script>
-    // Smooth scrolling
-    document.addEventListener('DOMContentLoaded', function () {
-      const navLinks = document.querySelectorAll('nav a');
-      navLinks.forEach(link => {
-        link.addEventListener('click', function (event) {
-          event.preventDefault();
-          const targetId = this.getAttribute('href').substring(1);
-          const targetSection = document.getElementById(targetId);
-          if (targetSection) {
-            targetSection.scrollIntoView({ behavior: 'smooth' });
-          }
-        });
+    // Smooth scroll
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const target = document.getElementById(targetId);
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
       });
     });
 
@@ -226,33 +258,22 @@
       document.body.classList.toggle('dark');
     }
 
-    // Nav transformation (top to sidebar) on 'Projects' click
-    document.querySelector('a[href="#projects"]').addEventListener('click', function () {
+    // Sidebar toggle
+    function toggleSidebar() {
       const nav = document.getElementById('mainNav');
-      nav.style.position = 'fixed';
-      nav.style.left = '0';
-      nav.style.top = '0';
-      nav.style.height = '100%';
-      nav.style.width = '160px';
-      nav.style.backgroundColor = 'rgba(255,255,255,0.1)';
-      nav.style.backdropFilter = 'blur(12px)';
-      nav.style.display = 'flex';
-      nav.style.flexDirection = 'column';
-      nav.style.alignItems = 'flex-start';
-      nav.style.padding = '20px';
-      nav.style.gap = '10px';
-      nav.style.zIndex = '999';
-    });
+      const btn = document.getElementById('sidebarToggle');
+      document.body.classList.toggle('sidebar-open');
+      nav.classList.toggle('sidebar');
+      btn.textContent = nav.classList.contains('sidebar') ? '✖' : '☰';
+    }
 
-    // Scroll to top button logic
+    // Scroll-to-top button
     const scrollBtn = document.getElementById('scrollTopBtn');
-
     window.onscroll = function () {
-      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-        scrollBtn.style.display = "block";
-      } else {
-        scrollBtn.style.display = "none";
-      }
+      scrollBtn.style.display =
+        document.body.scrollTop > 200 || document.documentElement.scrollTop > 200
+          ? 'block'
+          : 'none';
     };
 
     function scrollToTop() {
