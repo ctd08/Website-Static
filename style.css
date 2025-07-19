@@ -80,15 +80,22 @@ h1,h2,button,nav a,.topbar .contact-link{font-family:'Lekton',sans-serif}
 }
 .sidebar.collapsed~.topbar{left:0px}
 
-.topbar .search{flex:1;display:flex;justify-content:center}
+.topbar .search{flex:1;display:flex;justify-content:center;align-items:center;position: relative;}
+.topbar .search-icon{
+  position:absolute;left:calc(50% - 200px + 12px);top:50%;transform:translateY(-50%);color:#ccc;font-size:14px;transition:color 0.3s;pointer-events: none;
+}
 .topbar .search input{
-  width:60%;padding:10px 40px;border:none;border-radius:9999px;
-  background:rgba(255,255,255,.2);color:#fff;font-size:14px;outline:none
+  width:60%;max-width:400px;padding: 10px 16px 10px 38px;border:none;border-radius:9999px;
+  background:rgba(255,255,255,.2);color:#fff;font-size:14px;outline:none; transition: backround 0.3s;
 }
-.topbar .search::before{
-  content:'\\f002';font-family:'Font Awesome 5 Free';font-weight:900;color:#ccc;
+
+.topbar .search input::placeholder{
+  color:#ddd;
+}
+/*.topbar .search::before{
+  font-family:'Font Awesome 5 Free';font-weight:900;color:#ccc;
   position:absolute;margin-left:12px;line-height:36px
-}
+}*/
 .topbar .contact-link{color:#6fff8b;text-decoration:none;font-weight:bold}
 
 /* --- Sections --- */
