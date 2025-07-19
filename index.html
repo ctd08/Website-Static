@@ -9,9 +9,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Lekton&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-
   <!-- Main stylesheet -->
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css" id="theme-style" />
 </head>
 <body>
   <!-- Sidebar toggle button -->
@@ -20,7 +19,6 @@
   <div class="layout">
     <!-- Sidebar -->
     <aside class="sidebar" id="sidebar">
-      
       <nav>
         <a href="#about" class="active">About</a>
         <a href="#projects">Projects</a>
@@ -28,13 +26,18 @@
       </nav>
       <div class="sidebar-footer">
         <p>Follow me on:</p>
-        <div class ="social-icons"></div>
+        <div class="social-icons"></div>
         <a href="https://github.com/ctd08" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
         <a href="mailto:cristina.tutunariu@yahoo.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
         <a href="https://www.linkedin.com/in/cristina-diana-tutunariu/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
       </div>
-
     </aside>
+
+    <!-- Banner -->
+    <div class="brand-banner">
+      <span class="brand-name">Cristina Tutunariu</span>
+      <span class="brand-title">Software & Embedded Developer</span>
+    </div>
 
     <!-- Top bar -->
     <header class="topbar">
@@ -43,7 +46,13 @@
         <i class="fas fa-search search-icon"></i>
         <input type="text" placeholder="Search..." aria-label="Search" />
       </div>
-      <a class="contact-link" href="#contact">Contact</a>
+      <div class="topbar-right">
+     <div class="topbar-right">
+        <button class="mode-toggle" onclick="toggleDarkMode()" aria-label="Toggle dark mode">🌓</button>
+        <a class="contact-link" href="#contact">Contact</a>
+     </div>
+
+      </div>
     </header>
 
     <!-- Main content -->
@@ -66,7 +75,7 @@
       <section id="projects">
         <h2>Projects</h2>
         <p>Check out my latest projects on
-           <a href="https://github.com/ctd08" target="_blank">GitHub</a>.
+          <a href="https://github.com/ctd08" target="_blank">GitHub</a>.
         </p>
       </section>
 
