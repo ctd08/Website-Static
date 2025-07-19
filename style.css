@@ -1,0 +1,104 @@
+/* --- Global reset & fonts --- */
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'Segoe UI',sans-serif;
+  background:radial-gradient(circle at top left,#2d2d2d,#1a1a1a);
+  color:#222;min-height:100vh;transition:background .3s, color .3s;
+}
+body.dark-mode{
+  background:radial-gradient(circle at top left,#f4f4f4,#2d2d2d);
+  color:#222
+}
+h1,h2,button,nav a,.topbar .contact-link{font-family:'Lekton',sans-serif}
+
+/* --- Layout containers --- */
+.layout{display:flex}
+.main{margin-left:200px;padding:100px 24px 40px;flex:1;max-width:1100px;
+    margin-right: auto;
+    margin-left: auto;
+      transition:margin-left .3s}
+
+/* --- Sidebar --- */
+.sidebar{
+  width:200px;min-height: 100vh;
+  background:linear-gradient(#1e1e1e,#2a2a2a);
+  color:#6fff8b;padding:20px;display:flex;flex-direction:column;gap:20px;
+  justify-content: center;align-items: center;
+  box-shadow:2px 0 5px rgba(0,0,0,.3);transition:transform 0.4s ease, opacity 0.4s ease;
+  transform: translateX(0);opacity: 1;position:fixed;left:0;top:0;z-index:999;
+}
+.sidebar h2{font-size:1.2rem;color:#6fff8b;white-space:nowrap;transition:opacity .3s}
+.sidebar nav a{
+  display:block;padding:10px;color:#6fff8b;text-decoration:none;
+  border-radius:8px;transition:background .2s
+}
+.sidebar nav a:hover,.sidebar nav a.active{background:rgba(255,255,255,.1);color:#fff}
+
+.sidebar-footer{
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    font-family: Lekton, sans-serif;
+    color: #6fff8b;
+    font-size: 0.9rem;
+    justify-content: space-around;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,.1);
+}
+
+.sidebar-footer a{
+  color:#6fff8b;font-size:1.2rem;
+  transition:color 0.2s
+}
+
+.sidebar-footer a:hover{
+  color:#6fff8b
+}
+
+/* collapsed state */
+.sidebar.collapsed h2{opacity:0}
+.sidebar.collapsed~.main{margin-left:auto;}
+.sidebar.collapsed {
+  transform: translateX(-100%);opacity: 0;
+  transition:transform 0.4s ease, opacity 0.4s ease;
+}
+/* --- Toggle button --- */
+.toggle-btn{
+  position:fixed;top:15px;left:15px;z-index:1001;
+  background:rgba(255,255,255,.2);color:#6fff8b;border:none;
+  padding:8px 12px;border-radius:6px;cursor:pointer
+}
+
+/* --- Top bar --- */
+.topbar{
+  position:fixed;left:200px;top:0;right:0;height:60px;z-index:1000;
+  backdrop-filter:blur(8px);background:#ffffff10;
+  display:flex;align-items:center;justify-content:space-between;padding:0 30px;color:#fff;
+  transition:left .3s
+}
+.sidebar.collapsed~.topbar{left:0px}
+
+.topbar .search{flex:1;display:flex;justify-content:center}
+.topbar .search input{
+  width:60%;padding:10px 40px;border:none;border-radius:9999px;
+  background:rgba(255,255,255,.2);color:#fff;font-size:14px;outline:none
+}
+.topbar .search::before{
+  content:'\\f002';font-family:'Font Awesome 5 Free';font-weight:900;color:#ccc;
+  position:absolute;margin-left:12px;line-height:36px
+}
+.topbar .contact-link{color:#6fff8b;text-decoration:none;font-weight:bold}
+
+/* --- Sections --- */
+section{
+  background:rgba(255,255,255,.05);backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.1);border-radius:12px;
+  padding:20px;margin-bottom:20px;color:#eee
+}
+h1{font-size:2rem;color:#6fff8b}
+h2{color:#6fff8b;margin-bottom:10px}
+p{color:#ccc;line-height:1.5}
+img{border-radius:50%;width:150px;margin-bottom:10px}
+a{color:#6fff8b;text-decoration:underline}
