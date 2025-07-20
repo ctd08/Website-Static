@@ -136,7 +136,11 @@ body.dark-mode .sidebar nav a {
   color: #6fff8b;
 }
 
-.sidebar nav a:hover,.sidebar nav a.active{background:rgba(255,255,255,.1);color:#006a3d}
+.sidebar nav a:hover{
+    background:rgba(255,255,255,.1);
+    color:#6fff8b;          
+}
+.sidebar nav a.active{background:rgba(255,255,255,.1);color:#006a3d;font-weight: bold;}
 
 .sidebar-footer{
     margin-top: auto;
