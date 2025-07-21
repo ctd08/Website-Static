@@ -14,72 +14,75 @@
 </head>
 <body>
     <body class="dark-mode"></body>
-  <!-- Sidebar toggle button -->
-  <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+    <!-- Sidebar toggle button -->
+    <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
 
-  <div class="layout">
-    <!-- Sidebar -->
-    <aside class="sidebar" id="sidebar">
-      <nav>
-        <a href="index.html">About</a>
-        <a href="projects.html">Projects</a>
-        <a href="#cv">CV</a>
-      </nav>
-      <div class="sidebar-footer">
-        <p>Follow me on:</p>
-        <div class="social-icons"></div>
-        <a href="https://github.com/ctd08" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        <a href="mailto:cristina.tutunariu@yahoo.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-        <a href="https://www.linkedin.com/in/cristina-diana-tutunariu/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      </div>
-    </aside>
-    <!-- Sidebar nav -->
+    <div class="layout">
+      <!-- Sidebar -->
+      <aside class="sidebar" id="sidebar">
+        <nav>
+          <a href="index.html">About</a>
+          <a href="projects.html">Projects</a>
+          <a href="#cv">CV</a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <p>Follow me on:</p>
+          <div class="social-icons"></div>
+          <a href="https://github.com/ctd08" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="mailto:cristina.tutunariu@yahoo.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://www.linkedin.com/in/cristina-diana-tutunariu/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </aside>
+    
 
 
- <!-- Banner -->
-    <a href="index.html" class="brand-banner">
-      <span class="brand-name">Cristina Tutunariu</span>
-      <span class="brand-title">Software & Embedded Developer</span>
-    </a>
+      <!-- Banner -->
+      <a href="index.html" class="brand-banner">
+        <span class="brand-name">Cristina Tutunariu</span>
+        <span class="brand-title">Software & Embedded Developer</span>
+      </a>
 
-     <!-- Top bar -->
-    <header class="topbar">
-      <div></div>
-      <div class="search">
-        <i class="fas fa-search search-icon"></i>
-        <input type="text" placeholder="Search..." aria-label="Search" />
-      </div>
-      <div class="topbar-right">
-     <div class="topbar-right">
-        <button class="mode-toggle" onclick="toggleDarkMode()" aria-label="Toggle dark mode">🌓</button>
-        <a class="contact-link" href="#contact">Contact</a>
-     </div>
+      <!-- Top bar -->
+      <header class="topbar">
+        <div></div>
+        <div class="search">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" placeholder="Search..." aria-label="Search" />
+        </div>
 
-     </div>
-    </header>
+        <div class="topbar-right">
+          <div class="topbar-right">
+            <button class="mode-toggle" onclick="toggleDarkMode()" aria-label="Toggle dark mode">🌓</button>
+              <a class="contact-link" href="#contact">Contact</a>
+          </div>
+        </div>
+      </header>
 
-    <!-- Main content -->
-     <main class="main">
-  <section id="projects">
-    <h2>Projects</h2>
-    <p>Check out my latest work on
-      <a href="https://github.com/ctd08" target="_blank">GitHub</a>.
-    </p>
+      <!-- Main content -->
+      <main class="main">
+        <div class="timeline">
+          <div class="timeline-item right">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>Current Project – Portfolio Website</h3>
+              <p>A responsive personal site to showcase my work. Built using HTML, CSS, JavaScript. Soon migrating to React.</p>
+              <img src="images/portfolio-preview.png" alt="Portfolio preview" />
+            </div>
+          </div>
 
-    <!-- Add real project items here -->
-    <div class="project-list">
-      <article class="project-card">
-        <h3>Smart Prosthetic Arm</h3>
-        <p>Gesture-controlled prosthetic arm using Arduino and EMG sensors.</p>
-      </article>
+          <div class="timeline-item left">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>Underfloor Heating Generator</h3>
+              <p>In cooperation with Technical University of Applied Sciences and JOCO GmbHs.</p>
+              <img src="images/pulse-monitor.jpg" alt="Pulse Monitor Project" />
+            </div>
+          </div>
+        </div>
 
-      <article class="project-card">
-        <h3>Learning Game Engine</h3>
-        <p>A simple 2D engine built with Python and Pygame for educational purposes.</p>
-      </article>
+ <!-- JS -->
+  <script src="script.js"></script>
 
-      <!-- Add more as needed -->
-    </div>
-  </section>
-</main>
+        </main>
 
