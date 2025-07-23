@@ -33,3 +33,27 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const filterButtons = document.querySelectorAll(".tag-filter");
+  const timelineItems = document.querySelectorAll(".timeline-item");
+
+  filterButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      // Remove active state
+      filterButtons.forEach(btn => btn.classList.remove("active"));
+      button.classList.add("active");
+
+      const tag = button.getAttribute("data-tag");
+
+      timelineItems.forEach(item => {
+        const tags = item.getAttribute("data-tags").split(" ");
+        if (tag === "all" || tags.includes(tag)) {
+          item.style.display = "block";
+        } else {
+          item.style.display = "none";
+        }
+      });
+    });
+  });
+});

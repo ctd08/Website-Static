@@ -449,3 +449,63 @@ body.dark-mode .timeline-content {
 background: #1e1e1e;
 color: #eee;
 }
+
+.project-tags {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  font-size: 0.75rem;
+  padding: 4px 8px;
+  border-radius: 9999px;
+  background-color: #e0f8ea;
+  color: #006a3d;
+  font-weight: 500;
+}
+
+body.dark-mode .tag {
+  background-color: #1e1e1e;
+  color: #6fff8b;
+  border: 1px solid #6fff8b;
+}
+
+.tag-filters {
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+
+.tag-filter {
+  display: inline-block;
+  margin: 0 6px 6px 0;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  background-color: #e0f8ea;
+  color: #006a3d;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.tag-filter.active,
+.tag-filter:hover {
+  background-color: #006a3d;
+  color: #fff;
+}
+
+body.dark-mode .tag-filter {
+  background-color: #1e1e1e;
+  color: #6fff8b;
+  border: 1px solid #6fff8b;
+}
+
+body.dark-mode .tag-filter.active,
+body.dark-mode .tag-filter:hover {
+  background-color: #6fff8b;
+  color: #0d0d0d;
+}
