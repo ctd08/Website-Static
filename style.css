@@ -265,18 +265,45 @@ body.dark-mode .topbar {
 .sidebar.collapsed~.topbar{left:0px}
 
 
-.topbar .search{flex:1;display:flex;justify-content:center;align-items:center;position: relative;}
-.topbar .search-icon{
-  position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#ccc;font-size:14px;transition:color 0.3s;pointer-events: none;
-}
-.topbar .search input{
-  width:60%;max-width:400px;padding: 10px 16px 10px 38px;border:none;border-radius:9999px;
-  background:rgba(255,255,255,.2);color:#fff;font-size:14px;outline:none; transition: backround 0.3s;
+.topbar .search {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
-.topbar .search input::placeholder{
-  color:#ddd;
+.topbar .search-icon {
+  position: absolute;
+  left: 380px; /* Move icon inside input, close to text */
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ccc;
+  font-size: 16px;
+  pointer-events: none;
+  z-index: 2;
 }
+
+.topbar .search input {
+  width: 60%;
+  max-width: 400px;
+  padding: 10px 16px 10px 38px; /* left padding matches icon position */
+  border: none;
+  border-radius: 9999px;
+  background: rgba(255,255,255,.2);
+  color: #000;
+  font-size: 14px;
+  outline: none;
+  transition: background 0.3s;
+  position: relative;
+  z-index: 1;
+}
+
+.topbar .search input::placeholder {
+  color: #ddd;
+  padding-left: 0; /* No extra padding needed */
+}
+
 /*.topbar .search::before{
   font-family:'Font Awesome 5 Free';font-weight:900;color:#ccc;
   position:absolute;margin-left:12px;line-height:36px
