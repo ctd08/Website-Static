@@ -315,7 +315,7 @@ body.dark-mode .topbar {
 }*/
 .topbar .contact-link{color:#006a3d;text-decoration:none;font-weight:bold}
 
-bodydark-mode .contact-link {
+body.dark-mode .contact-link {
   color: #6fff8b;
 }
 
