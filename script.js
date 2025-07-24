@@ -57,3 +57,42 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+
+//search functionality-->
+function handleSearch(event) {
+  event.preventDefault(); // prevent page reload
+  const input = document.getElementById("search-input").value.toLowerCase();
+  const items = document.querySelectorAll(".timeline-item");
+
+  items.forEach(item => {
+    const tags = (item.getAttribute("data-tags") || "").toLowerCase();
+    const text = item.innerText.toLowerCase();
+
+    if (tags.includes(input) || text.includes(input)) {
+      item.style.display = "block";
+    } else {
+      item.style.display = "none";
+    }
+  });
+
+  return false;
+}
+
+// Show or hide scroll-to-top button
+window.addEventListener("scroll", function () {
+  const btn = document.getElementById("scrollToTopBtn");
+  if (window.scrollY > 300) {
+    btn.style.display = "block";
+  } else {
+    btn.style.display = "none";
+  }
+});
+
+// Scroll to top smoothly
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}

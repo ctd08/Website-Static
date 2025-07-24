@@ -509,3 +509,40 @@ body.dark-mode .tag-filter:hover {
   background-color: #6fff8b;
   color: #0d0d0d;
 }
+
+#scrollToTopBtn {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 999;
+  background-color: #006a3d;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: opacity 0.3s, background-color 0.3s;
+  padding: 12px 16px;
+  font-size: 20px;
+}
+
+#scrollToTopBtn:hover {
+  background-color: #005a2d;
+  transform: scale(1.1);
+}
+
+body.dark-mode #scrollToTopBtn {
+  background-color: #6fff8b;
+  color: #0d0d0d;
+}
+
+body.dark-mode #scrollToTopBtn:hover {
+  background-color: #5fff7b;
+}
+
+
