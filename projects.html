@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cristina Tutunariu – Portfolio</title>
+
+  <!-- Fonts / Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Lekton&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="style.css" id="theme-style" />
+</head>
+
+    <body class="dark-mode">
+    <!-- Sidebar toggle button -->
+    <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+
+    <div class="layout">
+      <!-- Sidebar -->
+      <aside class="sidebar" id="sidebar">
+        <nav>
+          <a href="index.html">About</a>
+          <a href="projects.html">Projects</a>
+          <a href="#cv">CV</a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <p>Follow me on:</p>
+          <div class="social-icons"></div>
+          <a href="https://github.com/ctd08" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="mailto:cristina.tutunariu@yahoo.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://www.linkedin.com/in/cristina-diana-tutunariu/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </aside>
+    
+
+
+      <!-- Banner -->
+      <a href="index.html" class="brand-banner">
+        <span class="brand-name">Cristina Tutunariu</span>
+        <span class="brand-title">Software & Embedded Developer</span>
+      </a>
+
+      <!-- Top bar -->
+      <header class="topbar">
+        <div></div>
+        <form id="search-form" onsubmit="return handleSearch(event)">
+          <div class="search">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" placeholder="Search..." aria-label="Search" />
+          </div>
+        </form>
+
+        <div class="topbar-right">
+          <div class="topbar-right">
+            <button class="mode-toggle" onclick="toggleDarkMode()" aria-label="Toggle dark mode">🌓</button>
+              <a class="contact-link" href="#contact">Contact</a>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main content -->
+      <main class="main">
+        <h1 class="page-title">My Projects</h1>
+        <div class="tag-filters">
+          <button class="tag-filter active" data-tag="all">All</button>
+          <button class="tag-filter" data-tag="html">HTML</button>
+          <button class="tag-filter" data-tag="css">CSS</button>
+          <button class="tag-filter" data-tag="javascript">JavaScript</button>
+          <button class="tag-filter" data-tag="python">Python</button>
+          <button class="tag-filter" data-tag="embedded">Embedded</button>
+          <button class="tag-filter" data-tag="cpp">C++</button>
+          <button class="tag-filter" data-tag="react">React</button>
+          <button class="tag-filter" data-tag="fullstack">Fullstack</button>
+          <button class="tag-filter" data-tag="backend">Backend</button>
+
+        </div>
+
+        <div class="timeline">
+
+
+          <div class="timeline-item right"data-tags="python ai cnn ">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>AI-Powered Medical Image Analysis Tool</h3>
+              <p>Use open datasets like chest X-rays or retina scans (from NIH, Kaggle, etc.)
+                Build a tool that:1.Loads DICOM images 2.Runs an AI model (CNN) to detect abnormalities (pneumonia, diabetic retinopathy) 3.Visualizes predictions with heatmaps (explainability)</p>
+                <a href="projects/website.html" class="see-more">...see more</a>
+              <img src="images/graphic.png" alt="Developer Image" />
+            </div>
+          </div>
+
+          
+          <div class="timeline-item left"data-tags="python ai">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>DrawMeMaybe – Deine Persönlichkeit als Karikatur</h3>
+              <p>Project Work</p>
+              <a href="projects/drawmemaybe.html" class="see-more">...see more</a>
+              <img src="images/Screenshot 2025-07-24 003938.png" alt="DrawMeMaybe" />
+            </div>
+          </div>
+
+        
+          <div class="timeline-item right" data-tags="html css javascript react fullstack backend">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>Current Project – Portfolio Website</h3>
+              <p>A responsive personal site to showcase my work. Built using HTML, CSS, JavaScript. Soon migrating to React.</p>
+              <a href="projects/website.html" class="see-more">...see more</a>
+              <img src="images/globe-pointer.png" alt="Portfolio preview" />
+              <div class="project-tags">
+                <span class="tag" data-tag="html">HTML</span>
+                <span class="tag" data-tag="css">CSS</span>
+                <span class="tag" data-tag="javascript">JavaScript</span>
+                <span class="tag" data-tag="react">React</span>
+                <span class="tag" data-tag="fullstack">Fullstack</span>
+                <span class="tag" data-tag="backend">Backend</span>
+                <span class="tag" data-tag="boostgeometry">BoostGeometry</span>
+              </div>
+            </div>
+          </div>
+          
+
+          <div class="timeline-item left" data-tags="cpp gitlab boostgeometry backend">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>Underfloor Heating Generator</h3>
+              <p>In cooperation with Technical University of Applied Sciences and JOCO GmbH.</p>
+              <a href="projects/heatingGenerator.html" class="see-more">...see more</a>
+              <img src="images/freepik__adjust__41491.png" alt="JOCO GmbH" />
+
+              <div class="project-tags">
+                <span class="tag" data-tag="cpp">C++</span>
+                <span class="tag" data-tag="gitlab">GitLab</span>
+                <span class="tag" data-tag="boostgeometry">BoostGeometry</span>
+                <span class="tag" data-tag="backend">Backend</span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+  </main>
+ <!-- JS -->
+  <script src="script.js"></script>
+
+    <button id="scrollToTopBtn" onclick="scrollToTop()" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
+</body>
+        
+

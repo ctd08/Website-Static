@@ -12,93 +12,83 @@
   <!-- Main stylesheet -->
   <link rel="stylesheet" href="style.css" id="theme-style" />
 </head>
-<body>
-    <body class="dark-mode"></body>
-  <!-- Sidebar toggle button -->
-  <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
 
-  <div class="layout">
-    <!-- Sidebar -->
-    <aside class="sidebar" id="sidebar">
-      <nav>
-        <a href="#about" class="active">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#cv">CV</a>
-      </nav>
-      <div class="sidebar-footer">
-        <p>Follow me on:</p>
-        <div class="social-icons"></div>
-        <a href="https://github.com/ctd08" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        <a href="mailto:cristina.tutunariu@yahoo.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-        <a href="https://www.linkedin.com/in/cristina-diana-tutunariu/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      </div>
-    </aside>
+    <body class="dark-mode">
+    <!-- Sidebar toggle button -->
+      <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
 
-    <!-- Banner -->
-    <a href="#" class="brand-banner">
-      <span class="brand-name">Cristina Tutunariu</span>
-      <span class="brand-title">Software & Embedded Developer</span>
-    </a>
+    <div class="layout">
+      <!-- Sidebar -->
+      <aside class="sidebar" id="sidebar">
+        <nav>
+          <a href="index.html">About</a>
+          <a href="projects.html">Projects</a>
+          <a href="cv/cristina-tutunariu-cv.pdf" download>CV</a>
+        </nav>
+        <div class="sidebar-footer">
+          <p>Follow me on:</p>
+          <div class="social-icons"></div>
+            <a href="https://github.com/ctd08" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="mailto:cristina.tutunariu@yahoo.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.linkedin.com/in/cristina-diana-tutunariu/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          </div>
+      </aside>
 
-    <!-- Top bar -->
-    <header class="topbar">
-      <div></div>
-      <div class="search">
-        <i class="fas fa-search search-icon"></i>
-        <input type="text" placeholder="Search..." aria-label="Search" />
-      </div>
-      <div class="topbar-right">
-     <div class="topbar-right">
-        <button class="mode-toggle" onclick="toggleDarkMode()" aria-label="Toggle dark mode">🌓</button>
-        <a class="contact-link" href="#contact">Contact</a>
-     </div>
+      <!-- Banner -->
+      <a href="index.html" class="brand-banner">
+        <span class="brand-name">Cristina Tutunariu</span>
+        <span class="brand-title">Software & Embedded Developer</span>
+      </a>
 
-      </div>
-    </header>
+      <!-- Top bar -->
+      <header class="topbar">
+        <div class="search">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" placeholder="Search..." aria-label="Search" />
+        </div>
+        <div class="topbar-right">
+            <button class="mode-toggle" onclick="toggleDarkMode()" aria-label="Toggle dark mode">🌓</button>
+            <a class="contact-link" href="#contact">Contact</a>
+        </div>
+      </header>
 
-    <!-- Main content -->
-    <main class="main">
-      <section>
-        <h1>Servus, I'm Cristina Tutunariu</h1>
-        <p>Software &amp; Embedded Developer</p>
-      </section>
+      <!-- Main content -->
+      <main class="main">
+        <section>
+          <h1>Servus, I'm Cristina Tutunariu</h1>
+          <p>Software &amp; Embedded Developer</p>
+        </section>
 
-      <section id="about">
-        <h2>About Me</h2>
-        <img src="https://avatars.githubusercontent.com/u/102885626?v=4" alt="Cristina Tutunariu" />
-        <p>
-          I am a Computer Engineering student in my 4th semester focused on building tech that supports health and learning.
-          Interested in AI, ML, and robotics especially when applied to med‑tech and education.
-          I thrive in structured systems and thoughtful design, where purpose meets precision.
-        </p>
-      </section>
+        <section id="about">
+          <h2>About Me</h2>
+          <img src="https://avatars.githubusercontent.com/u/102885626?v=4" alt="Cristina Tutunariu" />
+          <p>
+            I am a Computer Engineering student in my 4th semester focused on building tech that supports health and learning.
+            Interested in AI, ML, and robotics especially when applied to med‑tech and education.
+            I thrive in structured systems and thoughtful design, where purpose meets precision.
+          </p>
+        </section>
 
-      <section id="projects">
-        <h2>Projects</h2>
-        <p>Check out my latest projects on
-          <a href="https://github.com/ctd08" target="_blank">GitHub</a>.
-        </p>
-      </section>
+        
 
-      <section id="contact">
-        <h2>Contact</h2>
-        <p>
-          Email: <a href="mailto:cristina.tutunariu@yahoo.com">cristina.tutunariu@yahoo.com</a><br>
-          LinkedIn:
-          <a href="https://www.linkedin.com/in/cristina-diana-tutunariu/" target="_blank">
-            Cristina Tutunariu
-          </a>
-        </p>
-      </section>
+        <section id="contact">
+          <h2>Contact</h2>
+          <p>
+            Email: <a href="mailto:cristina.tutunariu@yahoo.com">cristina.tutunariu@yahoo.com</a><br>
+            LinkedIn:
+              <a href="https://www.linkedin.com/in/cristina-diana-tutunariu/" target="_blank">
+              Cristina Tutunariu
+              </a>
+          </p>
+        </section>
 
-      <section id="cv">
-        <h2>CV</h2>
-        <p>Download my CV <a href="#">here</a>.</p>
-      </section>
-    </main>
-  </div>
-
+        
+      </main>
+    </div>
+    
   <!-- JS -->
   <script src="script.js"></script>
-</body>
+
+    <button id="scrollToTopBtn" onclick="scrollToTop()" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
+  </body>
 </html>
