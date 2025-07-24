@@ -96,3 +96,30 @@ function scrollToTop() {
     behavior: "smooth"
   });
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  // ---- Click on tags in individual project pages → Go to projects.html with tag query
+  document.querySelectorAll(".project-tags .tag").forEach(tag => {
+    tag.addEventListener("click", function (e) {
+      e.preventDefault();
+      const tagName = tag.dataset.tag;
+      if (tagName) {
+        window.location.href = `../projects.html?tag=${encodeURIComponent(tagName)}`;
+      }
+    });
+  });
+
+  // ---- On projects.html → auto-filter if URL contains ?tag=...
+  const urlParams = new URLSearchParams(window.location.search);
+  const tagFromUrl = urlParams.get("tag");
+  if (tagFromUrl) {
+    const filterBtn = document.querySelector(`.tag-filter[data-tag="${tagFromUrl.toLowerCase()}"]`);
+    if (filterBtn) {
+      filterBtn.click();
+      const timeline = document.querySelector(".timeline");
+      if (timeline) {
+        timeline.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }
+});

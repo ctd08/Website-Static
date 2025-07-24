@@ -10,6 +10,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+
   <!-- Main stylesheet -->
   <link rel="stylesheet" href="../style.css" id="theme-style" />
 </head>
@@ -58,7 +62,7 @@
 
     <!-- Main content -->
     <main class="main">
-      <h1 class="page-title">My Projects</h1>
+      <h1 class="page-title"></h1>
 
       <h1>Underfloor Heating Generator</h1>
         <p>
@@ -66,8 +70,16 @@
         </p>
 
         <br>
+
+        <h2>Project Overview</h2>
+        <p>
+            In my 4th semester (2025), I served as a Backend Developer on a team of eight students for the Pipe Puzzle Planner project. 
+            This was a high-profile academic initiative developed in partnership with JOCO GmbH and completed under the direct supervision of Prof. Alexander von Bodisco, Dean of the Faculty of Informatics. 
+            My primary responsibility was to design and implement the system's core geometric abstraction capabilities.
+        </p>
+        <br>
         
-        <h3>The Vision & The Challenge</h3>
+        <h2>The Vision & The Challenge</h2>
         <p>
             Modern construction projects demand a high degree of precision and efficiency. 
             While digitalization has transformed many industries, the planning of surface heating 
@@ -83,13 +95,92 @@
 
         <br>
 
-        <h3>The Solution: An Automated Planning Tool</h3>
+        <h2>The Solution: An Automated Planning Tool</h2>
         <p>
-            We created the Pipe Puzzle Planner, a web application that automates the generation of optimized underfloor heating layouts. 
+            We created the <strong class="keyword">Pipe Puzzle Planner</strong>, a web application that automates the generation of optimized underfloor heating layouts. 
             The system allows users to upload a floor plan in various formats (PDF, JPG, PNG, DWG), after which a powerful backend algorithm 
             performs a detailed analysis. 
         </p>
         <img src="../images/HeatingPlaner.jpg" alt="Heating Planer" class="project-image" />
+
+        <p>
+            The application’s core logic mimics an expert planner’s workflow:
+            <ol>
+            <li><strong class="keyword">Data Input & Analysis</strong>: The system extracts key geometric data from the uploaded floor plan, 
+                including room contours, wall dimensions, and the positions of doors and windows.</li>
+            <li><strong class="keyword">Automated Layout Generation</strong>: An algorithm calculates the optimal placement for heating circuit 
+                distributors and then generates the most efficient and uniform pipe layout for each room.</li>
+            <li><strong class="keyword">Visualization & Interaction</strong>: The final layout is rendered on an interactive canvas, where users 
+                can inspect the design and export it for implementation.</li>
+            </ol>
+        </p>
+         <br>
+        <h2>Deep Dive: My Contribution – Geometric Abstraction</h2>
+        <p>
+            My primary responsibility was developing the backend component for <strong class="keyword">Geometric Abstraction</strong>. This was a crucial task focused on translating 
+            the raw visual data from a floor plan into a structured format that our algorithms could understand and process. For automated planning to 
+            work, the system required a logical understanding of the building’s spatial layout, not just a visual picture.
+        </p>
+        <br>
+        <p>
+            To solve this, I developed the modules that transform room geometry into an abstract <strong class="keyword">Grid and Graph representation</strong>. This became the foundational data structure for the 
+            project's subsequent pathfinding and layout algorithms.
+        </p>
+
+        <br>
+
+        <p>
+            <strong>My development process included</strong>:
+        </p>
+        <br>
+        <p>
+            <ol>
+                <li><strong class="keyword">Identifying Room Connectivity</strong>: I built the RoomConnector module to automatically analyze room layouts and detect adjacent rooms by identifying shared borders. 
+                    This process models the connections between rooms, which is the first step in understanding the overall topology of a floor plan.</li>
+                <li>
+                    <strong class="keyword">Creating a Graph Model</strong>: Using the room connections, I implemented the logic to generate a formal, directed graph. In this graph, key locations like doorways and 
+                    room centers are represented as <strong class="keyword">nodes</strong>, and the valid paths between them become <strong class="keyword">edges</strong>. This structure is essential for enabling routing algorithms to eventually find 
+                    the most efficient paths for heating pipes.
+                </li>
+                <li>
+                    <strong class="keyword">Implementing a Grid for Validation</strong>: To help debug and visually verify the abstract graph, I created a feature to output the structure as a 2D ASCII grid. This provided a simple, 
+                    human-readable view of the system's understanding of the floor plan, allowing our team to rapidly validate the logic.
+                </li>
+                <li>
+                    <strong class="keyword">Building Test Functions</strong>: I created a series of test functions to validate both the grid and the graph structures, ensuring the internal logic was robust and that errors in topology 
+                    detection could be quickly identified and resolved.
+                </li>
+            </ol>
+        </p>
+
+        <p>
+            This geometric abstraction component serves as the critical link between the user's floor plan and the automated planning logic. My work in converting complex spatial data into a structured graph was a key enabler for the core automation 
+            that defines the Pipe Puzzle Planner.
+        </p>
+
+        <br>
+        <h2>Technologies Used</h2>
+        <p>
+            <ul>
+                <li>C++</li>
+                <li>BoostGeometry</li>
+                <li>React</li>
+                <li>TypeScript</li>
+                <li>PostgreSQL(with PostGIS)</li>
+                <li>Docker</li>
+                <li>Vite</li>
+                <li>Tailwind CSS</li>
+            </ul>
+        </p>
+        <br>
+        <h3>Tags:</h3>
+        <div class="project-tags">
+            <a href="../projects.html?tag=cpp" class="tag">C++</a>
+            <a href="../projects.html?tag=gitlab" class="tag">GitLab</a>
+            <a href="../projects.html?tag=boostgeometry" class="tag">BoostGeometry</a>
+            <a href="../projects.html?tag=backend" class="tag">Backend</a>
+        </div>
+
 
       <!-- Scroll to top button -->
       <button id="scrollToTopBtn" onclick="scrollToTop()" aria-label="Scroll to top">

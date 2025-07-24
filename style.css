@@ -455,6 +455,8 @@ color: #eee;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .tag {
@@ -464,6 +466,7 @@ color: #eee;
   background-color: #e0f8ea;
   color: #006a3d;
   font-weight: 500;
+  text-decoration: none;
 }
 
 body.dark-mode .tag {
@@ -552,4 +555,15 @@ body.dark-mode #scrollToTopBtn:hover {
   border-radius: 12px; /* or 0 for square corners */
   display: block;
   margin: 20px auto;
+}
+
+.keyword {
+  color: #006a3d;
+  font-family: Fira Code, monospace;
+  font-weight: bold; 
+
+}
+
+body.dark-mode .keyword {
+  color: #6fff8b;
 }
