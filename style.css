@@ -546,3 +546,10 @@ body.dark-mode #scrollToTopBtn:hover {
 }
 
 
+.project-image {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 12px; /* or 0 for square corners */
+  display: block;
+  margin: 20px auto;
+}
