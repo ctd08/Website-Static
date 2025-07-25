@@ -96,6 +96,14 @@ body.dark-mode .sidebar-footer a{
 }
 
 h1,h2,button,nav a,.topbar .contact-link{font-family:'Lekton',sans-serif}
+p {
+  line-height: 1.6; /* This improves readability within the paragraph */
+  margin-bottom: 24px; /* This adds a 24px gap after every paragraph */
+}
+
+.extra-space {
+  margin-bottom: 50px; /* A much larger gap */
+}
 
 
 /* --- Layout containers --- */
@@ -566,4 +574,28 @@ body.dark-mode #scrollToTopBtn:hover {
 
 body.dark-mode .keyword {
   color: #6fff8b;
+}
+
+
+.image-wrapped-left {
+  float: left; /* It pushes the image to the left. */
+  width: 250px; /* Gives your image a specific width. */
+  height: auto; /* Keeps the image's aspect ratio correct. */
+  margin-right: 20px; /* CRITICAL: Adds space between the image and the text. */
+  margin-bottom: 10px; /* Adds a little space below the image. */
+  border-radius: 8px; /* Optional: gives the image soft corners. */
+}
+
+/* This prevents the container from collapsing around the floated image. */
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* For floating to the right, you could create another class */
+.image-wrapped-right {
+  float: right;
+  margin-left: 20px; /* Add space on the left instead */
+  
 }
