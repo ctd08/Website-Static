@@ -446,6 +446,7 @@ box-shadow: 0 0 10px rgba(0,0,0,0.05);
 transition: background 0.3s, color 0.3s;
 position:relative;
 text-decoration: none;
+text-align: left
 
 }
 
@@ -649,7 +650,7 @@ a{
 
 /* 5. Align the text inside each card to match your timeline's theme */
 .parallel-card.left {
-  text-align: right; /* Text in the left card aligns right */
+  text-align: left; /* Text in the left card aligns right */
 }
 .parallel-card.left ul {
   text-align: left; /* Re-apply the fix for bullet points */
