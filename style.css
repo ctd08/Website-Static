@@ -397,6 +397,12 @@ left: 0;
 text-align: right;
 }
 
+.timeline-item.left ul {
+  text-align: left;
+  display: inline-block;
+  margin-top: 10px;
+}
+
 .timeline-item.right {
 left: 50%;
 text-align: left;
@@ -439,6 +445,8 @@ padding: 20px;
 box-shadow: 0 0 10px rgba(0,0,0,0.05);
 transition: background 0.3s, color 0.3s;
 position:relative;
+text-decoration: none;
+
 }
 
 body.dark-mode .timeline-content {
@@ -598,4 +606,9 @@ body.dark-mode .keyword {
   float: right;
   margin-left: 20px; /* Add space on the left instead */
   
+}
+
+a{
+  color: #006a3d;
+  text-decoration: none;
 }
