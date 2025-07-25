@@ -6,7 +6,7 @@ function toggleSidebar() {
 const savedMode = localStorage.getItem("mode");
 const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-if (savedMode === "dark" || (!savedMode && prefersDark)) {
+if (savedMode === "dark") {
   document.body.classList.add("dark-mode");
 }
 
