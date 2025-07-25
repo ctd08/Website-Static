@@ -364,8 +364,7 @@ body.dark-mode a {
 position: relative;
 max-width: 900px;
 margin: 0 auto;
-padding-left: 60px;
-min-height: 100%;
+padding: 0 40px;
 }
 
 .timeline::before {
@@ -388,31 +387,33 @@ background: #6fff8b;
 .timeline-item {
 position: relative;
 width:50%;
-padding: 20px 40px;
+padding-bottom: 20px;
 box-sizing: border-box;
 }
 
 .timeline-item.left {
 left: 0;
 text-align: right;
+padding-right: 40px;
 }
 
 .timeline-item.left ul {
   text-align: left;
   display: inline-block;
   margin-top: 10px;
+  padding-left: 40;
 }
 
 .timeline-item.right {
 left: 50%;
 text-align: left;
+padding-left: 40px;
 }
 
 /* Dot on the timeline */
 .timeline-dot {
 position: absolute;
-left: -11px;
-top: 20px;
+top: 0px;
 width: 20px;
 height: 20px;
 background: #006a3d;
@@ -420,17 +421,16 @@ border-radius: 50%;
 border: 3px solid white;
 box-shadow: 0 0 0 3px #0d0d0d;
 z-index: 1;
-transform:translateX(-50%);
 }
 
 .timeline-item.left .timeline-dot {
-right:10px;
-left: auto;
+right:-10px;
+
 }
 
 .timeline-item.right .timeline-dot {
-left: -30px;
-right:auto;
+left: -10px;
+
 }
 
 body.dark-mode .timeline-dot {
@@ -611,4 +611,51 @@ body.dark-mode .keyword {
 a{
   color: #006a3d;
   text-decoration: none;
+}
+
+/* ======================================= */
+/*  CSS for Parallel Timeline Cards        */
+/* ======================================= */
+
+/* 1. The main container for the parallel row */
+.timeline-parallel-container {
+  position: relative; /* Needed for positioning the timeline dot */
+  width: 100%;
+  margin: 20px 0; /* Adds some space above and below the block */
+}
+
+/* 2. Position the dot in the center for this special container */
+.timeline-parallel-container .timeline-dot {
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0; /* Aligns dot to the top of the block */
+}
+
+/* 3. This is our Flexbox container! */
+.parallel-card-wrapper {
+  display: flex; /* The magic starts here! */
+  justify-content: space-between; /* Pushes cards to opposite ends */
+  align-items: flex-start; /* Aligns cards to the top */
+  gap: 80px; /* Creates the central gutter space between cards */
+  width: 100%;
+  padding: 0 20px; /* A little bit of side padding */
+}
+
+/* 4. Styling for the individual cards */
+.parallel-card {
+  flex: 1; /* This makes both cards take up equal space */
+  min-width: 0; /* A flexbox fix for content overflow */
+}
+
+/* 5. Align the text inside each card to match your timeline's theme */
+.parallel-card.left {
+  text-align: right; /* Text in the left card aligns right */
+}
+.parallel-card.left ul {
+  text-align: left; /* Re-apply the fix for bullet points */
+  display: inline-block;
+}
+
+.parallel-card.right {
+  text-align: left; /* Text in the right card aligns left */
 }
