@@ -96,6 +96,14 @@ body.dark-mode .sidebar-footer a{
 }
 
 h1,h2,button,nav a,.topbar .contact-link{font-family:'Lekton',sans-serif}
+p {
+  line-height: 1.6; /* This improves readability within the paragraph */
+  margin-bottom: 24px; /* This adds a 24px gap after every paragraph */
+}
+
+.extra-space {
+  margin-bottom: 50px; /* A much larger gap */
+}
 
 
 /* --- Layout containers --- */
@@ -356,8 +364,7 @@ body.dark-mode a {
 position: relative;
 max-width: 900px;
 margin: 0 auto;
-padding-left: 60px;
-min-height: 100%;
+padding: 0 40px;
 }
 
 .timeline::before {
@@ -380,25 +387,33 @@ background: #6fff8b;
 .timeline-item {
 position: relative;
 width:50%;
-padding: 20px 40px;
+padding-bottom: 20px;
 box-sizing: border-box;
 }
 
 .timeline-item.left {
 left: 0;
 text-align: right;
+padding-right: 40px;
+}
+
+.timeline-item.left ul {
+  text-align: left;
+  display: inline-block;
+  margin-top: 10px;
+  padding-left: 40;
 }
 
 .timeline-item.right {
 left: 50%;
 text-align: left;
+padding-left: 40px;
 }
 
 /* Dot on the timeline */
 .timeline-dot {
 position: absolute;
-left: -11px;
-top: 20px;
+top: 0px;
 width: 20px;
 height: 20px;
 background: #006a3d;
@@ -406,17 +421,16 @@ border-radius: 50%;
 border: 3px solid white;
 box-shadow: 0 0 0 3px #0d0d0d;
 z-index: 1;
-transform:translateX(-50%);
 }
 
 .timeline-item.left .timeline-dot {
-right:10px;
-left: auto;
+right:-10px;
+
 }
 
 .timeline-item.right .timeline-dot {
-left: -30px;
-right:auto;
+left: -10px;
+
 }
 
 body.dark-mode .timeline-dot {
@@ -431,6 +445,9 @@ padding: 20px;
 box-shadow: 0 0 10px rgba(0,0,0,0.05);
 transition: background 0.3s, color 0.3s;
 position:relative;
+text-decoration: none;
+text-align: left
+
 }
 
 body.dark-mode .timeline-content {
@@ -566,4 +583,80 @@ body.dark-mode #scrollToTopBtn:hover {
 
 body.dark-mode .keyword {
   color: #6fff8b;
+}
+
+
+.image-wrapped-left {
+  float: left; /* It pushes the image to the left. */
+  width: 250px; /* Gives your image a specific width. */
+  height: auto; /* Keeps the image's aspect ratio correct. */
+  margin-right: 20px; /* CRITICAL: Adds space between the image and the text. */
+  margin-bottom: 10px; /* Adds a little space below the image. */
+  border-radius: 8px; /* Optional: gives the image soft corners. */
+}
+
+/* This prevents the container from collapsing around the floated image. */
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* For floating to the right, you could create another class */
+.image-wrapped-right {
+  float: right;
+  margin-left: 20px; /* Add space on the left instead */
+  
+}
+
+a{
+  color: #006a3d;
+  text-decoration: none;
+}
+
+/* ======================================= */
+/*  CSS for Parallel Timeline Cards        */
+/* ======================================= */
+
+/* 1. The main container for the parallel row */
+.timeline-parallel-container {
+  position: relative; /* Needed for positioning the timeline dot */
+  width: 100%;
+  margin: 20px 0; /* Adds some space above and below the block */
+}
+
+/* 2. Position the dot in the center for this special container */
+.timeline-parallel-container .timeline-dot {
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0; /* Aligns dot to the top of the block */
+}
+
+/* 3. This is our Flexbox container! */
+.parallel-card-wrapper {
+  display: flex; /* The magic starts here! */
+  justify-content: space-between; /* Pushes cards to opposite ends */
+  align-items: flex-start; /* Aligns cards to the top */
+  gap: 80px; /* Creates the central gutter space between cards */
+  width: 100%;
+  padding: 0 20px; /* A little bit of side padding */
+}
+
+/* 4. Styling for the individual cards */
+.parallel-card {
+  flex: 1; /* This makes both cards take up equal space */
+  min-width: 0; /* A flexbox fix for content overflow */
+}
+
+/* 5. Align the text inside each card to match your timeline's theme */
+.parallel-card.left {
+  text-align: left; /* Text in the left card aligns right */
+}
+.parallel-card.left ul {
+  text-align: left; /* Re-apply the fix for bullet points */
+  display: inline-block;
+}
+
+.parallel-card.right {
+  text-align: left; /* Text in the right card aligns left */
 }
