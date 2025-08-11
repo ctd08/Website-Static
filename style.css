@@ -721,6 +721,17 @@ body.dark-mode .timeline-content
   margin: 20px auto;
 }
 
+.project-video 
+{
+  max-width: 70%;   
+  height: auto;     
+  border-radius: 8px; 
+  display: block;   
+  margin: 20px auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
+}
+
+
 .project-tags 
 {
   margin-top: 12px;
