@@ -1,156 +1,273 @@
-/* --- Global reset & fonts --- */
+/* ===================================================================
+   TABLE OF CONTENTS
+   ===================================================================
+
+   1. Global Styles
+      - Reset & Box Sizing
+      - Font Definitions
+      - Body & Dark Mode
+      - Generic Element Styling (h1, p, a, etc.)
+
+   2. Layout Containers
+      - Main Layout Structure (.layout, .main)
+
+   3. Component: Brand Banner
+      - Top fixed banner containing the site name/logo
+
+   4. Component: Sidebar
+      - Main navigation sidebar, including footer and collapsed state
+
+   5. Component: Sidebar Toggle Button
+      - The button to show/hide the sidebar
+
+   6. Component: Top Bar
+      - Bar containing search, mode toggle, and contact link
+
+   7. Component: Content Sections
+      - General styling for <section> wrappers
+
+   8. Component: Timeline
+      - Vertical timeline for projects/experience
+      - Parallel timeline variant
+
+   9. Component: Project & Tags
+      - Project images, tags, and filter buttons
+
+  10. Component: Buttons
+      - "Scroll to Top" button
+
+  11. Utility & Helper Classes
+      - Spacing, keywords, and image wrapping helpers
+
+*/
+
+/* ===================================================================
+   1. Global Styles
+   =================================================================== */
+
+/* Reset and Box Sizing */
+/* This resets default browser styles and sets box-sizing to border-box for all elements */
 *{box-sizing:border-box;margin:0;padding:0}
+
+/* Font Definitions */
+/* This sets the default font family for the entire document */
 /* --Default light mode-- */
-body{
+body
+{
   font-family:'Segoe UI',sans-serif;
   background: #f9f9f9;
-  color: #000;min-height:100vh;transition:background .3s, color .3s ease;
-}
-.sidebar, .brand-banner { background:#ffffff; color: #222;}
-.sidebar nav a { color: #2c2c2c;}
-
-.sidebar nav a:hover, .sidebar nav a.active {
-    background: rgba(0,0,0,0.05);
-    color: #000;
-}
-
-section{
-    background: rgba(0,0,0,0.03);
-    color: #222;
+  color: #000;
+  min-height:100vh;
+  transition:background .3s, color .3s ease;
 }
 
 /* --- Dark mode styles --- */
-body.dark-mode{
+body.dark-mode
+{
   background: #0d0d0d;
   color:#eee;
 }
 
-body.dark-mode .sidebar,
-body.dark-mode .brand-banner {
-  background: #0d0d0d;
+/* Generic Element Styling */
+/* This sets the default styles for headings, paragraphs, and links */
+h1
+{
+  font-size:2rem;
+  color:#006a3d
+}
+
+h2
+{
+  color:#006a3d;
+  margin-bottom:10px
+}
+
+p
+{
+  color:#000;
+  line-height:1.6;
+  margin-bottom:24px; 
+}
+
+/* This sets the default styles for links */
+a
+{
+  color:#000;
+  text-decoration:underline
+}
+a:hover
+{
+  color:#006a3d;
+  text-decoration:none
+}
+
+img
+{
+  border-radius:50%;
+  width:150px;
+  margin-bottom:10px
+}
+
+/* This sets the default font for specific elements */
+h1,h2,button,nav a,.topbar .contact-link
+{
+  font-family:'Lekton',sans-serif
+}
+
+/*-- Dark Mode Styles for Headings and Paragraphs --- */
+
+body.dark-mode h1,body.dark-mode h2 
+{
   color: #6fff8b;
 }
 
-body.dark-mode .sidebar nav a {
+body.dark-mode p 
+{
+  color: #ccc;
+}
+
+body.dark-mode a 
+{
   color: #6fff8b;
 }
 
-body.dark-mode .sidebar nav a:hover,
-body.dark-mode .sidebar nav a.active {
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
+/* ===================================================================
+   2. Layout Containers
+   =================================================================== */
+/* Main Layout Structure */
+/* This sets the main layout structure with a sidebar and main content area */
+
+.layout
+{
+  display:flex
 }
 
-body.dark-mode section {
-  background: rgba(255, 255, 255, 0.05);
-  color: #eee;
+/* Main content area */
+.main
+{
+  margin-left:200px;
+  padding:180px 24px 40px;
+  flex:1;
+  max-width:1100px;
+  margin-right: auto;
+  margin-left: auto;
+  /*padding-top: 128px;*/
+  transition:margin-left .3s
 }
 
-.topbar {
-  background: #fff;
-  color: #000;
-}
+/* ===================================================================
+   3. Component: Brand Banner
+   =================================================================== */
+/* Brand Banner */
+/* This is the top fixed banner containing the site name/logo */
 
-.topbar .search input {
-   width: 60%;
-  max-width: 400px;
-  padding: 10px 16px 10px 38px;
-  border: none;
-  border-radius: 9999px;
-  font-size: 14px;
-  outline: none;
-  transition: background 0.3s;
-}
-
-body:not(.dark-mode) .topbar .search input {
-  background: #f0f0f0;
-  color: #000;
-}
-
-body.dark-mode .topbar .search input {
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
-}
-
-.topbar .search input::placeholder {
-  color: #000;
-}
-
-.brand-banner {
-  background: #fff;
-  color: #000;
+.brand-banner
+{
+  position:fixed;
+  left:0;
+  top:0;
+  width:100%;
+  height:80px;
+  background:#ffffff;
+  color:#000;
   text-decoration: none;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  font-family: 'Lekton', sans-serif;
+  font-size:1.2rem;
+  font-weight:bold;
+  transition:left .3s;
+  z-index:1002;
+  border-bottom: 1px solid rgba(255,255,255,.1);
 }
 
-.brand-role {
-  color: #000;
-}
-
-.sidebar-footer p,
-.sidebar-footer a {
+.brand-name
+{
+  font-size: 25px;
+  font-weight: bold;
   color: #006a3d;
 }
 
-body.dark-mode .sidebar-footer a{
-    color:#6fff8b;
+.brand-role
+{
+  font-size: 10px;
+  color: #000;
+  margin-top: 2px;
 }
 
-h1,h2,button,nav a,.topbar .contact-link{font-family:'Lekton',sans-serif}
-p {
-  line-height: 1.6; /* This improves readability within the paragraph */
-  margin-bottom: 24px; /* This adds a 24px gap after every paragraph */
-}
-
-.extra-space {
-  margin-bottom: 50px; /* A much larger gap */
-}
-
-
-/* --- Layout containers --- */
-.layout{display:flex}
-.main{margin-left:200px;padding:180px 24px 40px;flex:1;max-width:1100px;
-    margin-right: auto;
-    margin-left: auto;
-    /*padding-top: 128px;*/
-      transition:margin-left .3s}
-
-/* --- Sidebar --- */
-.sidebar{
-  width:200px;height:auto;top:80px;bottom:0;overflow-y:auto;
-  background: #ffffff;
-  color:#006a3d;padding:20px;display:flex;flex-direction:column;gap:20px;
-  justify-content: center;align-items: center;
-  box-shadow:2px 0 5px rgba(0,0,0,.3);transition:transform 0.4s ease, opacity 0.4s ease;
-  transform: translateX(0);opacity: 1;position:fixed;left:0;z-index:999;
-}
-
-body.dark-mode .sidebar {
+/* Dark Mode Styles for Brand Banner */
+body.dark-mode .brand-banner 
+{
   background: #0d0d0d;
   color: #6fff8b;
 }
 
-.sidebar h2{font-size:1.2rem;color:#006a3d;white-space:nowrap;transition:opacity .3s}
-
-body.dark-mode .sidebar h2 {
+body.dark-mode .brand-name 
+{
   color: #6fff8b;
 }
 
-.sidebar nav a{
-  display:block;padding:10px;color:#006a3d;text-decoration:none;
-  border-radius:8px;transition:background .2s
+body.dark-mode .brand-role 
+{
+  color: #ccc;
+}
+/* ===================================================================
+   4. Component: Sidebar
+   =================================================================== */
+
+   /* --- Sidebar --- */
+.sidebar{
+  width:200px;
+  height:auto;
+  top:80px;
+  bottom:0;
+  overflow-y:auto;
+  background: #ffffff;
+  color:#006a3d;
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+  justify-content: center;
+  align-items: center;
+  box-shadow:2px 0 5px rgba(0,0,0,.3);
+  transition:transform 0.4s ease, opacity 0.4s ease;
+  transform: translateX(0);
+  opacity: 1;
+  position:fixed;
+  left:0;
+  z-index:999;
 }
 
-body.dark-mode .sidebar nav a {
-  color: #6fff8b;
+.sidebar h2
+{
+  font-size:1.2rem;
+  color:#006a3d;
+  white-space:nowrap;
+  transition:opacity .3s
 }
 
-.sidebar nav a:hover{
-    background:rgba(255,255,255,.1);
-    color:#6fff8b;          
+.sidebar nav a
+{
+  display:block;
+  padding:10px;
+  color:#006a3d;
+  text-decoration:none;
+  border-radius:8px;
+  transition:background .2s
 }
-.sidebar nav a.active{background:rgba(255,255,255,.1);color:#006a3d;font-weight: bold;}
 
-.sidebar-footer{
+.sidebar nav a:hover, .sidebar nav a.active 
+{
+  background: rgba(0,0,0,0.05);
+  color: #000;
+}
+
+.sidebar-footer
+{
     margin-top: auto;
     display: flex;
     flex-direction: column;
@@ -164,6 +281,63 @@ body.dark-mode .sidebar nav a {
     border-top: 1px solid rgba(255,255,255,.1);
 }
 
+.sidebar-footer p, .sidebar-footer a 
+{
+  color: #006a3d;
+}
+
+.sidebar-footer a
+{
+  color:#006a3d;
+  font-size:1.2rem;
+  transition:color 0.2s
+}
+
+.sidebar-footer a:hover
+{
+  color:#6fff8b
+}
+
+/* --- Sidebar Collapsed State --- */
+.sidebar.collapsed h2
+{
+  opacity:0
+}
+
+.sidebar.collapsed~.main
+{
+  margin-left:auto;
+}
+
+.sidebar.collapsed 
+{
+  transform: translateX(-100%);opacity: 0;
+  transition:transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* --- Dark Mode Sidebar Overrides --- */
+body.dark-mode .sidebar 
+{
+  background: #0d0d0d;
+  color: #6fff8b;
+}
+
+body.dark-mode .sidebar h2 
+{
+  color: #6fff8b;
+}
+
+body.dark-mode .sidebar nav a 
+{
+  color: #6fff8b;
+}
+
+body.dark-mode .sidebar nav a:hover, body.dark-mode .sidebar nav a.active 
+{
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
 body.dark-mode .sidebar-footer {
   color: #006a3d;
 }
@@ -172,66 +346,43 @@ body.dark-mode .sidebar-footer p {
   color: #6fff8b;
 }
 
-.sidebar-footer a{
-  color:#006a3d;font-size:1.2rem;
-  transition:color 0.2s
-}
+
 
 body.dark-mode .sidebar-footer a {
   color: #6fff8b;
 }
 
-.sidebar-footer a:hover{
-  color:#6fff8b
+
+/* ===================================================================
+   5. Component: Sidebar Toggle Button
+   =================================================================== */
+/* Sidebar Toggle Button */
+/* This button toggles the visibility of the sidebar */
+.toggle-btn
+{
+  position:fixed;
+  top:90px;
+  left:15px;
+  z-index:1001;
+  background:rgba(255,255,255,.2);
+  color:#006a3d;
+  border:none;
+  padding:8px 12px;
+  border-radius:6px;
+  cursor:pointer
 }
 
-/* collapsed state */
-.sidebar.collapsed h2{opacity:0}
-.sidebar.collapsed~.main{margin-left:auto;}
-.sidebar.collapsed {
-  transform: translateX(-100%);opacity: 0;
-  transition:transform 0.4s ease, opacity 0.4s ease;
-}
-/* --- Toggle button --- */
-.toggle-btn{
-  position:fixed;top:90px;left:15px;z-index:1001;
-  background:rgba(255,255,255,.2);color:#006a3d;border:none;
-  padding:8px 12px;border-radius:6px;cursor:pointer
-}
-
-body.dark-mode .toggle-btn {
+body.dark-mode .toggle-btn 
+{
   background: rgba(255, 255, 255, 0.1);
   color: #6fff8b;
 }
 
-.brand-banner{
-  position:fixed;left:0;top:0;width:100%;height:80px;
-  background:#ffffff;color:#000;text-decoration: none;
-  display:flex;flex-direction:column;justify-content:center;align-items:center;
-  text-align:center;font-family: 'Lekton', sans-serif;font-size:1.2rem;font-weight:bold;
-  transition:left .3s;z-index:1002;border-bottom: 1px solid rgba(255,255,255,.1);
-}
-
-body.dark-mode .brand-banner {
-  background: #0d0d0d;
-  color: #6fff8b;
-}
-
-.brand-name{
-    font-size: 25px;
-    font-weight: bold;
-    color: #006a3d;
-}
-
-body.dark-mode .brand-name {
-  color: #6fff8b;}
-
-.brand-role{
-    font-size: 10px;
-    color: #ccc;
-    margin-top: 2px;
-}
-
+/* ===================================================================
+   6. Component: Top Bar
+   =================================================================== */
+/* Top Bar */
+/* This is the top bar containing search, mode toggle, and contact link */
 /* --- Top bar --- */
 .topbar{
   position:fixed;
@@ -250,30 +401,20 @@ body.dark-mode .brand-name {
   transition: .3s
 }
 
-body.dark-mode .topbar {
-  background: rgba(0, 0, 0, 0.7);
-  color: #6fff8b;
+.sidebar.collapsed~.topbar
+{
+  left:0px
 }
 
-.mode-toggle{
-    margin-right: 16px;
-    background:none;
-    border:none;
-    font-size: 1rem;
-    cursor: pointer;
-    color: #6fff8b;
-}
-
-.topbar-right{
+.topbar-right
+{
     display: flex;
     align-items: center;
     gap: 16px;
 }
 
-.sidebar.collapsed~.topbar{left:0px}
-
-
-.topbar .search {
+.topbar .search 
+{
   flex: 1;
   display: flex;
   justify-content: center;
@@ -286,7 +427,8 @@ body.dark-mode .topbar {
   max-width: 400px;
 }
 
-.topbar .search-icon {
+.topbar .search-icon 
+{
   position: absolute;
   left: 15px; /* Move icon inside input, close to text */
   top: 50%;
@@ -297,7 +439,8 @@ body.dark-mode .topbar {
   z-index: 2;
 }
 
-.topbar .search input {
+.topbar .search input 
+{
   width: 100%;
   max-width: 400px;
   padding: 10px 16px 10px 40px; /* left padding matches icon position */
@@ -312,162 +455,274 @@ body.dark-mode .topbar {
   z-index: 1;
 }
 
-.topbar .search input::placeholder {
-  color: #ddd;
-  padding-left: 0; /* No extra padding needed */
+body:not(.dark-mode) .topbar .search input 
+{
+  background: #f0f0f0;
+  color: #000;
 }
 
-/*.topbar .search::before{
-  font-family:'Font Awesome 5 Free';font-weight:900;color:#ccc;
-  position:absolute;margin-left:12px;line-height:36px
-}*/
-.topbar .contact-link{color:#006a3d;text-decoration:none;font-weight:bold}
+.topbar .search input::placeholder 
+{
+  color: #000;
+}
 
-body.dark-mode .contact-link {
+.mode-toggle
+{
+  margin-right: 16px;
+  background:none;
+  border:none;
+  font-size: 1rem;
+  cursor: pointer;
   color: #6fff8b;
 }
 
-/* --- Sections --- */
-section{
-  background:#ffffff;color:#000;backdrop-filter:blur(10px);
-  border:1px solid rgba(255,255,255,.1);border-radius:12px;
-  padding:20px;margin-bottom:20px;
+.topbar .contact-link
+{
+  color:#006a3d;
+  text-decoration:none;
+  font-weight:bold
 }
+
+/* --- Dark Mode Top Bar Overrides --- */
+body.dark-mode .topbar 
+{
+  background: rgba(0, 0, 0, 0.7);
+  color: #6fff8b;
+}
+
+body.dark-mode .topbar .search input 
+{
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+body.dark-mode .contact-link 
+{
+  color: #6fff8b;
+}
+
+/* ===================================================================
+   7. Component: Content Sections
+   =================================================================== */
+/* Content Sections */
+/* This styles the generic <section> elements used throughout the site */
+
+
+section
+{
+  background:#ffffff;
+  color:#000;
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:12px;
+  padding:20px;
+  margin-bottom:20px;
+}
+
+/* Dark Mode Styles for Sections */
 
 body.dark-mode section {
-  background:#0d0d0d;
-  color: #6fff8b;
-}
-h1{font-size:2rem;color:#006a3d}
-h2{color:#006a3d;margin-bottom:10px}
-p{color:#000;line-height:1.5}
-img{border-radius:50%;width:150px;margin-bottom:10px}
-a{color:#000;text-decoration:underline}
-
-body.dark-mode h1,
-body.dark-mode h2 {
-  color: #6fff8b;
-}
-body.dark-mode p {
-  color: #ccc;
+  background: rgba(255, 255, 255, 0.05);
+  color: #eee;
 }
 
-a {
-  color: #006a3d;
-}
-body.dark-mode a {
-  color: #6fff8b;
-}
+
+/* ===================================================================
+   8. Component: Timeline
+   =================================================================== */
+/* Timeline */
+/* This styles the vertical timeline for projects/experience */
+/* Timeline container */
+/* This sets the main container for the timeline */
 
 /* Timeline container */
-.timeline {
-position: relative;
-max-width: 900px;
-margin: 0 auto;
-padding: 0 40px;
+.timeline 
+{
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 40px;
 }
 
-.timeline::before {
-content: '';
-position: absolute;
-left: 50%;
-top: 0;
-bottom: 0;
-width: 3px;
-background: #006a3d;
-transform: translateX(-50%);
+.timeline::before 
+{
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: #006a3d;
+  transform: translateX(-50%);
 }
 
-
-body.dark-mode .timeline::before {
-background: #6fff8b;
-}
-
+/* Timeline items */
+/* This styles each item in the timeline */
 /* Each item */
-.timeline-item {
-position: relative;
-width:50%;
-padding-bottom: 20px;
-box-sizing: border-box;
+.timeline-item 
+{
+  position: relative;
+  width:50%;
+  padding-bottom: 20px;
+  box-sizing: border-box;
 }
 
-.timeline-item.left {
-left: 0;
-text-align: right;
-padding-right: 40px;
+.timeline-item.left 
+{
+  left: 0;
+  text-align: right;
+  padding-right: 40px;
 }
 
-.timeline-item.left ul {
+.timeline-item.left ul 
+{
   text-align: left;
   display: inline-block;
   margin-top: 10px;
   padding-left: 40;
 }
 
-.timeline-item.right {
-left: 50%;
-text-align: left;
-padding-left: 40px;
+.timeline-item.right 
+{
+  left: 50%;
+  text-align: left;
+  padding-left: 40px;
 }
 
 /* Dot on the timeline */
-.timeline-dot {
-position: absolute;
-top: 0px;
-width: 20px;
-height: 20px;
-background: #006a3d;
-border-radius: 50%;
-border: 3px solid white;
-box-shadow: 0 0 0 3px #0d0d0d;
-z-index: 1;
+.timeline-dot 
+{
+  position: absolute;
+  top: 0px;
+  width: 20px;
+  height: 20px;
+  background: #006a3d;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 0 0 3px #0d0d0d;
+  z-index: 1;
 }
 
-.timeline-item.left .timeline-dot {
-right:-10px;
-
+.timeline-item.left .timeline-dot 
+{
+  right:-10px;
 }
 
-.timeline-item.right .timeline-dot {
-left: -10px;
-
+.timeline-item.right .timeline-dot 
+{
+  left: -10px;
 }
 
-body.dark-mode .timeline-dot {
-background: #6fff8b;
-box-shadow: 0 0 0 3px #0d0d0d;  }
 
 /* Project card */
-.timeline-content {
-background: #ffffff;
-border-radius: 12px;
-padding: 20px;
-box-shadow: 0 0 10px rgba(0,0,0,0.05);
-transition: background 0.3s, color 0.3s;
-position:relative;
-text-decoration: none;
-text-align: left
-
+.timeline-content 
+{
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  transition: background 0.3s, color 0.3s;
+  position:relative;
+  text-decoration: none;
+  text-align: left
 }
 
-body.dark-mode .timeline-content {
-background: #1e1e1e;
-color: #eee;
+.timeline-content img 
+{
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 10px;
 }
 
-.timeline-content img {
-width: 100%;
-margin-top: 10px;
-border-radius: 10px;
+/* Dark Mode Styles for Timeline */
+body.dark-mode .timeline::before 
+{
+  background: #6fff8b;
 }
 
-
-body.dark-mode .timeline-content {
-background: #1e1e1e;
-color: #eee;
+body.dark-mode .timeline-dot 
+{
+  background: #6fff8b;
+  box-shadow: 0 0 0 3px #0d0d0d;  
 }
 
-.project-tags {
+body.dark-mode .timeline-content 
+{
+  background: #1e1e1e;
+  color: #eee;
+}
+
+/* Parallel Timeline */
+/* This styles the parallel timeline variant */
+
+
+/* The main container for the parallel row */
+.timeline-parallel-container 
+{
+  position: relative; 
+  width: 100%;
+  margin: 20px 0;
+}
+
+/* Position the dot in the center for this special container */
+.timeline-parallel-container .timeline-dot 
+{
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0; 
+}
+
+/* Flexbox container! */
+.parallel-card-wrapper 
+{
+  display: flex; 
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 80px; 
+  width: 100%;
+  padding: 0 20px;
+}
+
+/* Styling for the individual cards */
+.parallel-card 
+{
+  flex: 1; 
+  min-width: 0; 
+}
+
+/* Aligns the text inside each card to match the timeline's theme */
+.parallel-card.left 
+{
+  text-align: left; 
+}
+
+.parallel-card.left ul 
+{
+  text-align: left; 
+  display: inline-block;
+}
+
+.parallel-card.right 
+{
+  text-align: left; 
+}
+
+/* ===================================================================
+   9. Component: Project & Tags
+   =================================================================== */
+/* Project & Tags */
+/* This styles the project images, tags, and filter buttons */
+.project-image 
+{
+  width: 100%;
+  max-width: 600px;
+  border-radius: 12px; /* or 0 for square corners */
+  display: block;
+  margin: 20px auto;
+}
+
+.project-tags 
+{
   margin-top: 12px;
   display: flex;
   flex-wrap: wrap;
@@ -476,7 +731,8 @@ color: #eee;
   cursor: pointer;
 }
 
-.tag {
+.tag 
+{
   font-size: 0.75rem;
   padding: 4px 8px;
   border-radius: 9999px;
@@ -486,19 +742,15 @@ color: #eee;
   text-decoration: none;
 }
 
-body.dark-mode .tag {
-  background-color: #1e1e1e;
-  color: #6fff8b;
-  border: 1px solid #6fff8b;
-}
-
-.tag-filters {
+.tag-filters 
+{
   text-align: center;
   margin-bottom: 30px;
   margin-top: 20px;
 }
 
-.tag-filter {
+.tag-filter 
+{
   display: inline-block;
   margin: 0 6px 6px 0;
   padding: 6px 12px;
@@ -512,25 +764,43 @@ body.dark-mode .tag {
   transition: background-color 0.3s;
 }
 
-.tag-filter.active,
-.tag-filter:hover {
+.tag-filter.active, .tag-filter:hover 
+{
   background-color: #006a3d;
   color: #fff;
 }
 
-body.dark-mode .tag-filter {
+/* Dark Mode Styles for Tags */
+body.dark-mode .tag 
+{
   background-color: #1e1e1e;
   color: #6fff8b;
   border: 1px solid #6fff8b;
 }
 
-body.dark-mode .tag-filter.active,
-body.dark-mode .tag-filter:hover {
+
+
+body.dark-mode .tag-filter 
+{
+  background-color: #1e1e1e;
+  color: #6fff8b;
+  border: 1px solid #6fff8b;
+}
+
+body.dark-mode .tag-filter.active, body.dark-mode .tag-filter:hover 
+{
   background-color: #6fff8b;
   color: #0d0d0d;
 }
 
-#scrollToTopBtn {
+/* ===================================================================
+   10. Component: Buttons
+   =================================================================== */
+/* Scroll to Top Button */
+/* This styles the "Scroll to Top" button */
+
+#scrollToTopBtn 
+{
   position: fixed;
   bottom: 40px;
   right: 40px;
@@ -551,112 +821,72 @@ body.dark-mode .tag-filter:hover {
   font-size: 20px;
 }
 
-#scrollToTopBtn:hover {
+#scrollToTopBtn:hover 
+{
   background-color: #005a2d;
   transform: scale(1.1);
 }
 
-body.dark-mode #scrollToTopBtn {
+body.dark-mode #scrollToTopBtn 
+{
   background-color: #6fff8b;
   color: #0d0d0d;
 }
 
-body.dark-mode #scrollToTopBtn:hover {
+body.dark-mode #scrollToTopBtn:hover 
+{
   background-color: #5fff7b;
 }
 
 
-.project-image {
-  width: 100%;
-  max-width: 600px;
-  border-radius: 12px; /* or 0 for square corners */
-  display: block;
-  margin: 20px auto;
+/* ===================================================================
+   11. Utility & Helper Classes
+   =================================================================== */
+/* Extra Space Utility */
+/* This adds extra space at the bottom of the page */
+.extra-space 
+{
+  margin-bottom: 50px; /* A much larger gap */
 }
 
+/* Keyword Styling */
+/* This styles keywords in code blocks */
 .keyword {
   color: #006a3d;
   font-family: Fira Code, monospace;
   font-weight: bold; 
-
 }
 
-body.dark-mode .keyword {
+body.dark-mode .keyword 
+{
   color: #6fff8b;
 }
 
-
+/* Image Wrapping Helpers */
+/* This styles images wrapped with text */
 .image-wrapped-left {
-  float: left; /* It pushes the image to the left. */
-  width: 250px; /* Gives your image a specific width. */
-  height: auto; /* Keeps the image's aspect ratio correct. */
-  margin-right: 20px; /* CRITICAL: Adds space between the image and the text. */
-  margin-bottom: 10px; /* Adds a little space below the image. */
-  border-radius: 8px; /* Optional: gives the image soft corners. */
+  float: left;
+  width: 250px;
+  height: auto; 
+  margin-right: 20px; /* Adds space between the image and the text. */
+  margin-bottom: 10px; 
+  border-radius: 8px;
+}
+
+.image-wrapped-right 
+{
+  float: right;
+  margin-left: 20px; /* Add space on the left instead */
 }
 
 /* This prevents the container from collapsing around the floated image. */
-.clearfix::after {
+.clearfix::after 
+{
   content: "";
   display: block;
   clear: both;
 }
 
-/* For floating to the right, you could create another class */
-.image-wrapped-right {
-  float: right;
-  margin-left: 20px; /* Add space on the left instead */
-  
-}
-
-a{
-  color: #006a3d;
-  text-decoration: none;
-}
-
-/* ======================================= */
-/*  CSS for Parallel Timeline Cards        */
-/* ======================================= */
-
-/* 1. The main container for the parallel row */
-.timeline-parallel-container {
-  position: relative; /* Needed for positioning the timeline dot */
-  width: 100%;
-  margin: 20px 0; /* Adds some space above and below the block */
-}
-
-/* 2. Position the dot in the center for this special container */
-.timeline-parallel-container .timeline-dot {
-  left: 50%;
-  transform: translateX(-50%);
-  top: 0; /* Aligns dot to the top of the block */
-}
-
-/* 3. This is our Flexbox container! */
-.parallel-card-wrapper {
-  display: flex; /* The magic starts here! */
-  justify-content: space-between; /* Pushes cards to opposite ends */
-  align-items: flex-start; /* Aligns cards to the top */
-  gap: 80px; /* Creates the central gutter space between cards */
-  width: 100%;
-  padding: 0 20px; /* A little bit of side padding */
-}
-
-/* 4. Styling for the individual cards */
-.parallel-card {
-  flex: 1; /* This makes both cards take up equal space */
-  min-width: 0; /* A flexbox fix for content overflow */
-}
-
-/* 5. Align the text inside each card to match your timeline's theme */
-.parallel-card.left {
-  text-align: left; /* Text in the left card aligns right */
-}
-.parallel-card.left ul {
-  text-align: left; /* Re-apply the fix for bullet points */
-  display: inline-block;
-}
-
-.parallel-card.right {
-  text-align: left; /* Text in the right card aligns left */
-}
+/* ===================================================================
+   End of Style.css
+   =================================================================== */
