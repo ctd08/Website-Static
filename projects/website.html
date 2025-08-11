@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Website 1.0 – Project Case Study</title>
+
+  <!-- Fonts / Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Lekton&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="../style.css" id="theme-style" />
+</head>
+
+<body class="dark-mode">
+  <!-- Sidebar toggle button -->
+  <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+
+  <div class="layout">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <nav>
+        <a href="../index.html">About</a>
+        <a href="../projects.html">Projects</a>
+        <a href="../cv/Cristina_Tutunariu_CV.pdf" download>CV</a>
+      </nav>
+      <div class="sidebar-footer">
+        <p>Follow me on:</p>
+        <a href="https://github.com/ctd08" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="mailto:cristina.tutunariu@yahoo.com"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/cristina-diana-tutunariu/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </aside>
+
+    <!-- Banner -->
+    <a href="../index.html" class="brand-banner">
+      <span class="brand-name">Cristina Tutunariu</span>
+      <span class="brand-title">Software & Embedded Developer</span>
+    </a>
+
+    <!-- Top bar -->
+    <header class="topbar">
+      <form id="search-form" onsubmit="return handleSearch(event)">
+        <div class="search">
+          <i class="fas fa-search search-icon"></i>
+          <input id="search-input" type="text" placeholder="Search..." aria-label="Search" />
+        </div>
+      </form>
+      <div class="topbar-right">
+        <button class="mode-toggle" onclick="toggleDarkMode()">🌓</button>
+        <a class="contact-link" href="#contact">Contact</a>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="main">
+        <h1>Portfolio Website – Version 1.0</h1>
+
+        <p>
+            This website is my personal portfolio and professional hub — a place where I present my projects, skills, and journey as a developer.  
+            Version 1.0 is built entirely with HTML, CSS, and JavaScript, without any frameworks. Every section, from the responsive layout to the interactive project timeline, was assembled by combining my own code with open-source resources and the support of development tools such as code suggestions and extensions
+            as part of a deliberate, hands-on learning process.
+        </p>
+
+        <h2>🎯 Project Goal</h2>
+        <p>
+            The primary goal of Website 1.0 was to teach myself core front-end technologies through practical application. Rather than learning HTML, CSS, and JavaScript solely from theory, I approached it by building a complete, working site from scratch — adding features one by one and learning each concept as I needed it.
+        </p>
+
+        <h2>💡 Motivation</h2>
+        <p>
+            My background and initial focus have been in backend and embedded development. To bridge the gap between backend and frontend work — and to better understand how the two connect — I created this project.  
+            This experience is particularly relevant to my future in <strong>MedTech</strong>, where both system functionality and user interface design play a crucial role in delivering impactful solutions.
+        </p>
+
+        <h2>📚 What I Learned from Version 1.0</h2>
+            <ul>
+                <li>How to structure a multi-page static website from scratch.</li>
+                <li>Responsive design techniques for desktop, tablet, and mobile layouts.</li>
+                <li>Implementing interactive features with vanilla JavaScript (dark mode toggle, tag filtering, scroll-to-top).</li>
+                <li>Organizing and styling UI components with clean, reusable CSS classes.</li>
+                <li>The importance of accessibility and semantic HTML.</li>
+                <li>How to think in terms of both design and functionality at the same time.</li>
+            </ul>
+            
+            <p class="p">  </p>
+
+      <h2>🎥 Demo</h2>
+      <video controls width="100%" poster="../images/globe-pointer.png">
+        <source src="../videos/website-demo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+      <h2>🔗 GitHub</h2>
+      <p>You can view the source code for Website 1.0 here:  
+      <a href="https://github.com/ctd08/your-repo-name/tree/static-version" target="_blank">
+        GitHub – Static Version Branch
+      </a></p>
+
+      <h2>🚀 Planned for Website 2.0</h2>
+      <ul>
+        <li>Migration to React for modular and reusable components.</li>
+        <li>Fully functional search bar with live filtering.</li>
+        <li>Integrated contact form with backend (Node.js or Python Flask/Django).</li>
+        <li>Dynamic content loading from JSON or database.</li>
+      </ul>
+      <p class="p">  </p>
+      <h3>Tags:</h3>
+      <div class="project-tags">
+        <a href="../projects.html?tag=html" class="tag">HTML</a>
+        <a href="../projects.html?tag=css" class="tag">CSS</a>
+        <a href="../projects.html?tag=javascript" class="tag">JavaScript</a>
+        <a href="../projects.html?tag=react" class="tag">React</a>
+        <a href="../projects.html?tag=fullstack" class="tag">Fullstack</a>
+      </div>
+    </main>
+  </div>
+
+  <!-- JS -->
+  <script src="../script.js"></script>
+</body>
+</html>
