@@ -1,81 +1,27 @@
-//Toggles sidebar visibility-------------------------------------------------------------------------------------------------------------------------
-document.getElementById('toggleSidebar').addEventListener('click', toggleSidebar);
+// ===================================================================
+//  GLOBAL FUNCTIONS
+//  These functions must be in the global scope to be called by HTML onclick attributes.
+// ===================================================================
+
 function toggleSidebar() {
-  document.getElementById('sidebar').classList.toggle('collapsed');
-}
- 
-// Toggles dark mode----------------------------------------------------------------------------------------------------------------------------------
-// Check localStorage first
-const savedMode = localStorage.getItem("mode");
-const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-if (savedMode === "dark") {
-  document.body.classList.add("dark-mode");
+  const sidebar = document.getElementById('sidebar');
+  if (sidebar) {
+    sidebar.classList.toggle('collapsed');
+  }
 }
 
-// Toggle dark mode and save preference
 function toggleDarkMode() {
   document.body.classList.toggle("dark-mode");
   const mode = document.body.classList.contains("dark-mode") ? "dark" : "light";
   localStorage.setItem("mode", mode);
 }
 
-// Highlight active navigation link-----------------------------------------------------------------------------------------------------------------------
-// This script highlights the active link in the sidebar based on the current page
-// It checks the current URL and compares it with the href attributes of the links
-document.addEventListener("DOMContentLoaded", function () {
-  const currentPath = window.location.pathname.split("/").pop(); // gets "index.html" or "projects.html"
-  const navLinks = document.querySelectorAll(".sidebar nav a");
-
-  navLinks.forEach(link => {
-    const href = link.getAttribute("href");
-
-    if (
-      (currentPath === "" && href === "#about") || // index.html default
-      (href === currentPath) // exact match like "projects.html"
-    ) {
-      link.classList.add("active");
-    } else {
-      link.classList.remove("active");
-    }
-  });
-});
-
-// Filter timeline items by tags-----------------------------------------------------------------------------------------------------------------------------
-// This script filters timeline items based on the tags selected by the user
-// It adds click event listeners to filter buttons and shows/hides items accordingly
-document.addEventListener("DOMContentLoaded", function () {
-  const filterButtons = document.querySelectorAll(".tag-filter");
-  const timelineItems = document.querySelectorAll(".timeline-item");
-
-  filterButtons.forEach(button => {
-    button.addEventListener("click", () => {
-      // Remove active state
-      filterButtons.forEach(btn => btn.classList.remove("active"));
-      button.classList.add("active");
-
-      const tag = button.getAttribute("data-tag");
-
-      timelineItems.forEach(item => {
-        const tags = item.getAttribute("data-tags").split(" ");
-        if (tag === "all" || tags.includes(tag)) {
-          item.style.display = "block";
-        } else {
-          item.style.display = "none";
-        }
-      });
-    });
-  });
-});
-
-
-//search functionality------------------------------------------------------------------------------------------------------------------------------------------
-// This script handles the search functionality for timeline items
-// It listens for the form submission, retrieves the input value, and filters items accordingly
-document.getElementById("search-form").addEventListener("submit", handleSearch);
 function handleSearch(event) {
-  event.preventDefault(); // prevent page reload
-  const input = document.getElementById("search-input").value.toLowerCase();
+  event.preventDefault();
+  const searchInput = document.querySelector("#search-form input");
+  if (!searchInput) return false;
+
+  const input = searchInput.value.toLowerCase();
   const items = document.querySelectorAll(".timeline-item");
 
   items.forEach(item => {
@@ -88,58 +34,82 @@ function handleSearch(event) {
       item.style.display = "none";
     }
   });
-
   return false;
 }
 
-//Show or hide scroll-to-top button--------------------------------------------------------------------------------------------------------------------------------
-// This script shows a "scroll to top" button when the user scrolls down the page
-// It listens for the scroll event and toggles the button's visibility based on scroll position
-document.body.innerHTML += '<button id="scrollToTopBtn" style="display:none;" onclick="scrollToTop()">↑</button>';
-window.addEventListener("scroll", function () {
-  const btn = document.getElementById("scrollToTopBtn");
-  if (window.scrollY > 300) {
-    btn.style.display = "block";
-  } else {
-    btn.style.display = "none";
+
+// ===================================================================
+//  DOM CONTENT LOADED
+//  Code that runs only after the entire HTML document has been loaded.
+// ===================================================================
+
+document.addEventListener('DOMContentLoaded', function() {
+
+  // --- Initialize Dark Mode ---
+  // Checks localStorage for saved user preference.
+  if (localStorage.getItem("mode") === "dark") {
+    document.body.classList.add("dark-mode");
   }
-});
 
-//Scroll to top smoothly-------------------------------------------------------------------------------------------------------------------------------------------
-// This function scrolls the page to the top smoothly when the button is clicked
-function scrollToTop() {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
+  // --- Highlight Active Navigation Link ---
+  const currentPath = window.location.pathname.split("/").pop() || "index.html";
+  const navLinks = document.querySelectorAll(".sidebar nav a");
+  navLinks.forEach(link => {
+    const linkPath = link.getAttribute("href").split("/").pop();
+    if (linkPath === currentPath) {
+      link.classList.add("active");
+    } else {
+      link.classList.remove("active");
+    }
   });
-}
 
-// Click on tags in individual project pages → Go to projects.html with tag query----------------------------------------------------------------------------------
-// This script adds click event listeners to tags in individual project pages
-// When a tag is clicked, it redirects to projects.html with the tag as a query parameter
-document.addEventListener("DOMContentLoaded", function () {
-  // ---- Click on tags in individual project pages → Go to projects.html with tag query
-  document.querySelectorAll(".project-tags .tag").forEach(tag => {
-    tag.addEventListener("click", function (e) {
-      e.preventDefault();
-      const tagName = tag.dataset.tag;
-      if (tagName) {
-        window.location.href = `../projects.html?tag=${encodeURIComponent(tagName)}`;
-      }
+  // --- Tag Filtering Logic (for projects.html) ---
+  const filterButtons = document.querySelectorAll(".tag-filter");
+  filterButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      filterButtons.forEach(btn => btn.classList.remove("active"));
+      button.classList.add("active");
+      
+      const tag = button.getAttribute("data-tag");
+      const timelineItems = document.querySelectorAll(".timeline-item");
+
+      timelineItems.forEach(item => {
+        const tags = (item.getAttribute("data-tags") || "").split(" ");
+        if (tag === "all" || tags.includes(tag)) {
+          item.style.display = "block"; // Or 'flex' if they are flex items
+        } else {
+          item.style.display = "none";
+        }
+      });
     });
   });
 
-  // ---- On projects.html → auto-filter if URL contains ?tag=...
+  // --- Auto-filter from URL Query Parameter ---
   const urlParams = new URLSearchParams(window.location.search);
   const tagFromUrl = urlParams.get("tag");
   if (tagFromUrl) {
     const filterBtn = document.querySelector(`.tag-filter[data-tag="${tagFromUrl.toLowerCase()}"]`);
     if (filterBtn) {
       filterBtn.click();
-      const timeline = document.querySelector(".timeline");
-      if (timeline) {
-        timeline.scrollIntoView({ behavior: "smooth" });
-      }
     }
   }
-});
+  
+  // --- Scroll-to-Top Button Functionality ---
+  const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+  if (scrollToTopBtn) {
+    // Show or hide the button based on scroll position
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        scrollToTopBtn.style.display = "flex"; // Use 'flex' to match your CSS
+      } else {
+        scrollToTopBtn.style.display = "none";
+      }
+    });
+
+    // Scroll to the top when the button is clicked
+    scrollToTopBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+
+});  
