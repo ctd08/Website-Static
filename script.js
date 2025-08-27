@@ -93,6 +93,19 @@ document.addEventListener('DOMContentLoaded', function() {
       filterBtn.click();
     }
   }
+
+  // --- CV Dropdown Menu Logic ---
+  const dropdownToggle = document.querySelector(".dropdown-toggle");
+  if (dropdownToggle) {
+    dropdownToggle.addEventListener("click", () => {
+      // Find the menu that is the "next sibling" of the button
+      const dropdownMenu = dropdownToggle.nextElementSibling;
+      
+      // Toggle the 'open' class on both the button (for arrow) and menu (for slide)
+      dropdownToggle.classList.toggle("open");
+      dropdownMenu.classList.toggle("open");
+    });
+  }
   
   // --- Scroll-to-Top Button Functionality ---
   const scrollToTopBtn = document.getElementById("scrollToTopBtn");

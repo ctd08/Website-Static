@@ -358,6 +358,91 @@ body.dark-mode .sidebar-footer a {
   color: #6fff8b;
 }
 
+/* --- Dropdown Menu in Sidebar --- */
+.sidebar-dropdown {
+  width: 100%; /* Make the container fill the nav space */
+  text-align: left;
+}
+
+.dropdown-toggle {
+  /* Style the button to look exactly like your other nav links */
+  font-family: 'Lekton', sans-serif;
+  font-size: 1rem; /* Adjust to match other links */
+  color: #006a3d;
+  background: none;
+  border: none;
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between; /* Pushes text and arrow apart */
+  align-items: center;
+  transition: background 0.2s;
+}
+
+.dropdown-toggle:hover {
+  background: rgba(0,0,0,0.05);
+  color: #000;
+}
+
+/* Style the little arrow icon */
+.dropdown-toggle i {
+  transition: transform 0.3s ease;
+}
+
+/* When the menu is open, rotate the arrow */
+.dropdown-toggle.open i {
+  transform: rotate(180deg);
+}
+
+/* The dropdown menu itself - HIDDEN BY DEFAULT */
+.dropdown-menu {
+  /* This is the key to the slide animation */
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+  padding-left: 10px; /* Indent the sub-menu items */
+}
+
+/* The class we will add with JavaScript to SHOW the menu */
+.dropdown-menu.open {
+  max-height: 100px; /* Set a height large enough for the content */
+}
+
+/* Style the links inside the dropdown */
+.dropdown-menu a {
+  display: block;
+  padding: 8px 10px;
+  color: #006a3d;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.dropdown-menu a:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+/* --- Dark Mode Styles for Dropdown --- */
+body.dark-mode .dropdown-toggle {
+  color: #6fff8b;
+}
+
+body.dark-mode .dropdown-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+body.dark-mode .dropdown-menu a {
+  color: #6fff8b;
+}
+
+body.dark-mode .dropdown-menu a:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
 
 /* ===================================================================
    5. Component: Sidebar Toggle Button
