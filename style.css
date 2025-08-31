@@ -143,10 +143,10 @@ body.dark-mode a
 /* Main Layout Structure */
 /* This sets the main layout structure with a sidebar and main content area */
 
-.layout
+/*.layout
 {
   display:flex
-}
+}*/
 
 /* Main content area */
 .main
@@ -987,6 +987,36 @@ body.dark-mode .keyword
   content: "";
   display: block;
   clear: both;
+}
+
+/* ===================================================================
+   12. Component: Site Footer
+   =================================================================== */
+.site-footer {
+  /* Positioning and Layout */
+  margin-left: 200px; /* Aligns with the main content, leaving space for the sidebar */
+  padding: 20px 24px;
+  text-align: center;
+  transition: margin-left .3s; /* Ensures the footer slides smoothly when the sidebar is toggled */
+
+  /* Styling */
+  background: #f0f0f0; /* A slightly different background for separation */
+  color: #555; /* A softer text color */
+  font-size: 0.9rem;
+  border-top: 1px solid #ddd;
+}
+
+/* --- State when sidebar is collapsed --- */
+/* This rule is crucial for the footer to resize when the sidebar closes */
+.sidebar.collapsed ~ .site-footer {
+  margin-left: 0;
+}
+
+/* --- Dark Mode Styles for Footer --- */
+body.dark-mode .site-footer {
+  background: #0a0a0a; /* A very dark grey */
+  color: #777;
+  border-top: 1px solid #222;
 }
 
 /* ===================================================================

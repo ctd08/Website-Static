@@ -14,61 +14,77 @@
 </head>
 
     <body>
+      <!-- =================================================================
+       PAGE STRUCTURE & NAVIGATION COMPONENTS
+       ================================================================== -->
+
     <!-- Sidebar toggle button -->
       <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
 
     <div class="layout">
-      <!-- Sidebar -->
+      <!-- Sidebar Navigation -->
       <aside class="sidebar collapsed" id="sidebar">
         <nav>
           <a href="index.html">About</a>
           <a href="projects.html">Projects</a>
-          <!-- CV Dropdown Menu -->
+
+          <!-- Container for the CV Dropdown Menu -->
           <div class="sidebar-dropdown">
             <button class="dropdown-toggle">
               <span>CV</span>
               <i class="fas fa-chevron-down"></i>
             </button>
+
             <div class="dropdown-menu">
             <a href="cv/CV-en.pdf" download="Tutunariu_CV_EN.pdf">English</a>
             <a href="cv/CV-de.pdf" download="Tutunariu_CV_DE.pdf">German</a>
             </div>
+
           </div>
+
         </nav>
+
         <div class="sidebar-footer">
           <p>Follow me on:</p>
           <div class="social-icons"></div>
             <a href="https://github.com/ctd08" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
             <a href="mailto:cristina.tutunariu@yahoo.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
             <a href="https://www.linkedin.com/in/cristina-diana-tutunariu/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-          </div>
+        </div>
+
       </aside>
 
-      <!-- Banner -->
+      <!-- Top Fixed Banner -->
       <a href="index.html" class="brand-banner">
         <span class="brand-name">Cristina Tutunariu</span>
         <span class="brand-title">Software & Embedded Developer</span>
       </a>
 
-      <!-- Top bar -->
+      <!-- Top bar with Search and Controls -->
       <header class="topbar">
         <div class="search">
           <i class="fas fa-search search-icon"></i>
           <input type="text" placeholder="Search..." aria-label="Search" />
         </div>
+
         <div class="topbar-right">
-            <button class="mode-toggle" onclick="toggleDarkMode()" aria-label="Toggle dark mode">🌓</button>
-            <a class="contact-link" href="#contact">Contact</a>
+          <button class="mode-toggle" onclick="toggleDarkMode()" aria-label="Toggle dark mode">🌓</button>
+          <a class="contact-link" href="#contact">Contact</a>
         </div>
+
       </header>
 
-      <!-- Main content -->
+      <!-- =================================================================
+         MAIN PAGE CONTENT
+         ================================================================== -->
       <main class="main">
+        <!--Intro Section-->
         <section>
           <h1>Servus, I'm Cristina Tutunariu</h1>
           <p>Software &amp; Embedded Developer</p>
         </section>
 
+        <!-- About Section -->
         <section id="about">
           <h2>About Me</h2>
           <div class="content-block clearfix">
@@ -85,30 +101,38 @@
             Automation is a powerful force, and its impact is never neutral. 
             That’s why I’ve chosen to point my skills toward two of the most fundamentally human domains: health and education.
             </p>
+
             <p class="p">
             In medicine, I see a future where technology doesn't replace clinicians but augments them, helping us detect illness 
             with greater speed and precision, and even uncovering novel treatment methodologies that can revolutionize patient care.
             </p>
+
             <p class="p">
             In education, I am passionate about building adaptive systems that create personalized learning paths for everyone—not 
             just the gifted, but every student, regardless of their challenges or differences. 
             The goal is a future where technology unlocks potential, ensuring everyone is capable of contributing something meaningful.
             </p>
+
             <p class="p">
             These fields are too important for a "move fast and break things" approach. They demand quality over quantity, precision over rapidity. 
             My goal is to be the kind of engineer who builds with intention, creating technology that is not only smart, but also wise.
             </p>
+
             <p class="p">
             This passion for the intersection of hardware and software extends beyond my formal studies. 
             In my free time, I delve into neuropsychology to understand the brain's 'hardware' and how it shapes our behavior and 
             I learn new languages, which I see as the 'software' of human thought. 
             This perspective constantly informs my work, driving me to create technology that is not just functional, but deeply attuned to the user's cognitive experience.
             </p>
+
           </div>
+
         </section>
 
+        <!-- Timeline Section -->
         <div class="timeline">
 
+          <!--Timeline Item: IGEL-->
           <div class="timeline-item right">
             <div class="timeline-dot"></div>
             <div class="timeline-content">
@@ -170,6 +194,7 @@
             </div>
           </div>
 
+          <!--Timeline Item: Student -->
           <div class="timeline-item left">
             <div class="timeline-dot"></div>
             <div class="timeline-content">
@@ -223,10 +248,12 @@
             </div>
           </div>
 
-          <!-- The special parallel block -->
+          <!-- Special container for the parallel timeline layout -->
           <div class="timeline-parallel-container">
             <div class="timeline-dot"></div>
             <div class="parallel-card-wrapper">
+
+              <!--Prallel Card: Internship-->
               <div class="parallel-card left">
                 <div class="timeline-content">
                   <h2>Internship and Summer Job</h2>
@@ -266,6 +293,8 @@
                   <img src="images/universitatsklinikum-augsburg1611.jpg" alt="Universitätsklinikum" />
                 </div>
               </div>
+
+              <!--Prallel Card: FOS-->
               <div class="parallel-card right">
                 <div class="timeline-content">
                   <h2>Highschool Diploma (Fachabitur)</h2>
@@ -310,6 +339,7 @@
             </div>
           </div>
 
+          <!--Timeline Item: Wirtschaftsschule-->
           <div class="timeline-item right">
             <div class="timeline-dot"></div>
             <div class="timeline-content">
@@ -350,7 +380,7 @@
             </div>
           </div>
 
-        </div> 
+        </div> <!-- End of Timeline -->
 
         <section id="contact">
           <h2>Contact</h2>
@@ -365,6 +395,9 @@
 
         
       </main>
+      <footer class="site-footer">
+        <p>&copy; 2025 Cristina Tutunariu. All Rights Reserved.</p>
+      </footer>
     </div>
     
     <!-- JS -->

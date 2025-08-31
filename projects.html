@@ -16,16 +16,22 @@
 </head>
 
     <body>
+      <!-- =================================================================
+       PAGE STRUCTURE & NAVIGATION COMPONENTS
+       ================================================================== -->
+
     <!-- Sidebar toggle button -->
     <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
 
     <div class="layout">
-      <!-- Sidebar -->
+      <!-- Sidebar Navigation -->
       <aside class="sidebar" id="sidebar">
         <nav>
           <a href="index.html">About</a>
           <a href="projects.html">Projects</a>
-          <!-- CV Dropdown Menu -->
+
+
+          <!-- Container for the CV Dropdown Menu -->
           <div class="sidebar-dropdown">
             <button class="dropdown-toggle">
               <span>CV</span>
@@ -49,13 +55,13 @@
     
 
 
-      <!-- Banner -->
+      <!-- Top Fixed Banner -->
       <a href="index.html" class="brand-banner">
         <span class="brand-name">Cristina Tutunariu</span>
         <span class="brand-title">Software & Embedded Developer</span>
       </a>
 
-      <!-- Top bar -->
+      <!-- Top bar with Search and Controls -->
       <header class="topbar">
         <div></div>
         <form id="search-form" onsubmit="return handleSearch(event)">
@@ -73,9 +79,13 @@
         </div>
       </header>
 
-      <!-- Main content -->
+       <!-- =================================================================
+         MAIN PAGE CONTENT
+         ================================================================== -->
       <main class="main">
         <h1 class="page-title">My Projects</h1>
+
+        <!-- Tag Filters -->
         <div class="tag-filters">
           <button class="tag-filter active" data-tag="all">All</button>
           <button class="tag-filter" data-tag="html">HTML</button>
@@ -90,6 +100,7 @@
 
         </div>
 
+        <!-- Timeline Container for Projects -->
         <div class="timeline">
 
 
@@ -104,7 +115,7 @@
             </div>
           </div>-->
 
-          
+          <!--Timeline Item: DrawMeMaybe-->
           <div class="timeline-item left"data-tags="python ai">
             <div class="timeline-dot"></div>
             <div class="timeline-content">
@@ -116,6 +127,7 @@
           </div>
 
         
+          <!--Timeline Item: Portfolio Website-->
           <div class="timeline-item right" data-tags="html css javascript react fullstack backend">
             <div class="timeline-dot"></div>
             <div class="timeline-content">
@@ -135,7 +147,7 @@
             </div>
           </div>
           
-
+          <!--Timeline Item: Underfloor Heating Generator-->
           <div class="timeline-item left" data-tags="cpp gitlab boostgeometry backend">
             <div class="timeline-dot"></div>
             <div class="timeline-content">
@@ -154,13 +166,24 @@
             </div>
           </div>
         </div>
-  </main>
- <!-- JS -->
-  <script src="script.js"></script>
+      </main>
+      <!-- =================================================================
+         SITE FOOTER
+         ================================================================== -->
+      <footer class="site-footer">
+        <p>&copy; 2025 Cristina Tutunariu. All Rights Reserved.</p>
+      </footer>
+    </div> <!-- End of layout -->
+  
+      <!-- JS -->
+      <script src="script.js"></script>
 
-  <button id="scrollToTopBtn"  aria-label="Scroll to top">
-    <i class="fas fa-arrow-up"></i>
-  </button>
-</body>
+      <button id="scrollToTopBtn"  aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+      </button>
+
+      
+  </body>
+</html>
         
 
